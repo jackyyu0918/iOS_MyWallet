@@ -11,7 +11,7 @@ import UIKit
 
 class Analysis: UIViewController {
 
-    
+    //ddgdgdg
     override func viewDidLoad() {
         super.viewDidLoad()
         
