@@ -12,6 +12,7 @@
 		FA01D690236994A700091E3F /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01D68F236994A700091E3F /* MainVC.swift */; };
 		FA2504DA236C048C00718148 /* AddRecordPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2504D8236C048C00718148 /* AddRecordPage.storyboard */; };
 		FA2504DC236C04AB00718148 /* AddRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2504DB236C04AB00718148 /* AddRecordVC.swift */; };
+		FA2D0E80236C50FB0076A2EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D0E7F236C50FB0076A2EF /* ViewController.swift */; };
 		FA9AE07723695ACD0098280C /* InCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AE07623695ACD0098280C /* InCategory.swift */; };
 		FA9AE07923695AEB0098280C /* OutCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AE07823695AEB0098280C /* OutCategory.swift */; };
 		FACF7751236875E600740E3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACF7750236875E600740E3C /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		FA01D68F236994A700091E3F /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		FA2504D9236C048C00718148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = cs4298_asg2/View/Base.lproj/AddRecordPage.storyboard; sourceTree = "<group>"; };
 		FA2504DB236C04AB00718148 /* AddRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordVC.swift; sourceTree = "<group>"; };
+		FA2D0E7F236C50FB0076A2EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA9AE07623695ACD0098280C /* InCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCategory.swift; sourceTree = "<group>"; };
 		FA9AE07823695AEB0098280C /* OutCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutCategory.swift; sourceTree = "<group>"; };
 		FACF774D236875E600740E3C /* cs4298_asg2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cs4298_asg2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 				FA01D68F236994A700091E3F /* MainVC.swift */,
 				A7CDA96A236ADECD00A761D2 /* Analysis_VC.swift */,
 				FA2504DB236C04AB00718148 /* AddRecordVC.swift */,
+				FA2D0E7F236C50FB0076A2EF /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2D0E80236C50FB0076A2EF /* ViewController.swift in Sources */,
 				A7CDA96B236ADECD00A761D2 /* Analysis_VC.swift in Sources */,
 				FACF7753236875E600740E3C /* ContainerVC.swift in Sources */,
 				FACF7751236875E600740E3C /* AppDelegate.swift in Sources */,

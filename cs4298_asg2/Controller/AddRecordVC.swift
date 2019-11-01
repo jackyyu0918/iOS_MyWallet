@@ -11,16 +11,47 @@ import CoreData
 
 class AddRecordVC: UIViewController {
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var valueTextField: UITextField!
+    @IBOutlet weak var remarkTextField: UITextField!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    //
+    var imagePicker: ImagePicker!
+    @IBOutlet weak var imagePickerButton: UIButton!
+    @IBAction func imagePickerButtonTouched(_ sender: UIButton) {
+        //extended to ImagePickerDelegate
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        self.imagePicker.present(from: sender)
+    }
+    
+    
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var retrieveButto: UIButton!
-    
     @IBOutlet weak var deleteButton: UIButton!
+    
+    
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     func createData(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -28,14 +59,18 @@ class AddRecordVC: UIViewController {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let recordEntity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)
+    
+        
+        //preparation for photo
+        //NSData *imageData = UIImagePNGRepresentation(image);
         
         for i in 1...5{
             let record = NSManagedObject(entity: recordEntity!, insertInto: managedContext)
             record.setValue("typeA \(i)", forKeyPath: "type")
-            record.setValue("18/8/2019 \(i)", forKeyPath: "date")
-            record.setValue("Eat food \(i)", forKeyPath: "remark")
-            record.setValue("123.png \(i)", forKeyPath: "photo")
-            record.setValue(12.345, forKeyPath: "value")
+            record.setValue(datePicker.date, forKeyPath: "date")
+            record.setValue(remarkTextField.text, forKeyPath: "remark")
+            record.setValue("123", forKeyPath: "photo")
+            record.setValue((Double)(valueTextField.text!), forKeyPath: "value")
         
         do {
             try managedContext.save()
@@ -185,4 +220,14 @@ class AddRecordVC: UIViewController {
         deleteAllData(entity: "Record")
     }
     
+}
+
+extension AddRecordVC: ImagePickerDelegate {
+    
+    func didSelect(image: UIImage?) {
+        guard let image = image else {
+            return
+        }
+        self.imageView.image = image
+    }
 }
