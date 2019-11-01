@@ -165,16 +165,16 @@
                         <viewLayoutGuide key="safeArea" id="eYh-Cb-8K0"/>
                     </view>
                     <navigationItem key="navigationItem" id="JiV-bu-fJd">
-                        <barButtonItem key="leftBarButtonItem" title="More" id="JlQ-wU-HTU">
+                        <barButtonItem key="leftBarButtonItem" title="三" style="plain" id="JlQ-wU-HTU">
                             <connections>
                                 <action selector="onMoreTapped" destination="wuM-hr-pw5" id="ThZ-dW-fUv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="tpE-eU-WBO" kind="show" id="gyK-JM-4ac"/>
-                        <segue destination="DYc-y3-Pyg" kind="show" id="Y9Z-hB-17e"/>
-                        <segue destination="vKj-6R-2PN" kind="show" id="A1I-3s-DJO"/>
+                        <segue destination="tpE-eU-WBO" kind="show" identifier="ShowAnalyze" id="gyK-JM-4ac"/>
+                        <segue destination="DYc-y3-Pyg" kind="show" identifier="ShowCategory" id="Y9Z-hB-17e"/>
+                        <segue destination="vKj-6R-2PN" kind="show" identifier="ShowSetting" id="A1I-3s-DJO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKG-j5-ftz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -210,7 +210,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Ree-Tv-6IS"/>
                     </view>
                 </viewController>
