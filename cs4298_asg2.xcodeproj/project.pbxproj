@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A77F0B94236D8046000DAC3F /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F0B93236D8046000DAC3F /* PieChart.swift */; };
+		A7A47A22236DAC720000D087 /* Analysis_TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A47A21236DAC720000D087 /* Analysis_TableCell.swift */; };
 		A7C975B0236D89C500CE04AC /* Analyze.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C975AE236D89C500CE04AC /* Analyze.storyboard */; };
 		A7CDA96B236ADECD00A761D2 /* Analysis_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CDA96A236ADECD00A761D2 /* Analysis_VC.swift */; };
 		FA01D68E2369652700091E3F /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01D68D2369652700091E3F /* SideMenuVC.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		A77F0B93236D8046000DAC3F /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		A7A47A21236DAC720000D087 /* Analysis_TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis_TableCell.swift; sourceTree = "<group>"; };
 		A7C975AF236D89C500CE04AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = cs4298_asg2/View/Base.lproj/Analyze.storyboard; sourceTree = "<group>"; };
 		A7CDA96A236ADECD00A761D2 /* Analysis_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis_VC.swift; sourceTree = "<group>"; };
 		FA01D68D2369652700091E3F /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				A77F0B93236D8046000DAC3F /* PieChart.swift */,
 				FA2504DB236C04AB00718148 /* AddRecordVC.swift */,
 				FA2D0E7F236C50FB0076A2EF /* ViewController.swift */,
+				A7A47A21236DAC720000D087 /* Analysis_TableCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				FA9AE07723695ACD0098280C /* InCategory.swift in Sources */,
 				FA9AE07923695AEB0098280C /* OutCategory.swift in Sources */,
 				FACF7759236875E600740E3C /* cs4298_asg2.xcdatamodeld in Sources */,
+				A7A47A22236DAC720000D087 /* Analysis_TableCell.swift in Sources */,
 				FA01D690236994A700091E3F /* MainVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
