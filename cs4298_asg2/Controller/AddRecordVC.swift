@@ -144,40 +144,50 @@ class AddRecordVC: UIViewController {
     }
     
     func createData(){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let recordEntity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)
-    
-        let record = NSManagedObject(entity: recordEntity!, insertInto: managedContext)
-        /*
-        record.setValue("Food", forKeyPath: "type")
-        record.setValue("Food", forKeyPath: "date")
-        record.setValue("Food", forKeyPath: "remark")
-        record.setValue("Food", forKeyPath: "photo")
-        record.setValue("Food", forKeyPath: "value")
-        */
-        record.setValue(typeName, forKeyPath: "type")
-        record.setValue(datePicker.date, forKeyPath: "date")
-        record.setValue(remarkTextField.text, forKeyPath: "remark")
-        record.setValue(imageView.image?.pngData(), forKeyPath: "photo")
-        record.setValue((Double)(valueTextField.text!), forKeyPath: "value")
-
-        //that's the way you tran from NSDATA to image
-         /*
-           let binaryImage = imageView.image?.pngData()
-           testImageView.image = UIImage(data: <#T##Data#>)
-         */
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        if typeName != nil && (Double)(valueTextField.text!) != nil {
+            let controller = UIAlertController(title: "Success!", message: "New record has been added.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            controller.addAction(okAction)
+            present(controller, animated: true, completion: nil)
+            
+            //real business
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let recordEntity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)
+            
+            let record = NSManagedObject(entity: recordEntity!, insertInto: managedContext)
+            /*
+             record.setValue("Food", forKeyPath: "type")
+             record.setValue("Food", forKeyPath: "date")
+             record.setValue("Food", forKeyPath: "remark")
+             record.setValue("Food", forKeyPath: "photo")
+             record.setValue("Food", forKeyPath: "value")
+             */
+            record.setValue(typeName, forKeyPath: "type")
+            record.setValue(datePicker.date, forKeyPath: "date")
+            record.setValue(remarkTextField.text, forKeyPath: "remark")
+            record.setValue(imageView.image?.pngData(), forKeyPath: "photo")
+            record.setValue((Double)(valueTextField.text!), forKeyPath: "value")
+            
+            //that's the way you tran from NSDATA to image
+            /*
+             let binaryImage = imageView.image?.pngData()
+             testImageView.image = UIImage(data: <#T##Data#>)
+             */
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+            
+        } else {
+            
+            let controller = UIAlertController(title: "Failed!", message: "You must fill in the details, type and value must be filled.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            controller.addAction(okAction)
+            present(controller, animated: true, completion: nil)
         }
-        
-        let controller = UIAlertController(title: "Success!", message: "New record has been added.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        controller.addAction(okAction)
-        present(controller, animated: true, completion: nil)
     }
     
     //from github
@@ -317,9 +327,9 @@ class AddRecordVC: UIViewController {
         retrieveData()
     }
     
-    /*@IBAction func deleteRecord(_ sender: Any) {
+    @IBAction func deleteRecord(_ sender: Any) {
         deleteAllData(entity: "Record")
-    }*/
+    }
     
     @IBAction func debuggerVariable(_ sender: Any) {
         print("imageView.image:  \(imageView.image)")
@@ -330,9 +340,10 @@ class AddRecordVC: UIViewController {
     }
     
     func updateUI(){
+        //to solve blue button, change to custom button
         if NatureOfMoney == "Outcome" {
             button1.setImage(UIImage(named: "FoodIcon.png"), for: .normal)
-            button2.setImage(UIImage(named: "Food"), for: .normal)
+            button2.setImage(UIImage(named: "Food.png"), for: .normal)
             button3.setImage(UIImage(named: "Food"), for: .normal)
             button4.setImage(UIImage(named: "Food"), for: .normal)
             button5.setImage(UIImage(named: "Food"), for: .normal)
@@ -340,7 +351,7 @@ class AddRecordVC: UIViewController {
             button7.setImage(UIImage(named: "Food"), for: .normal)
             button8.setImage(UIImage(named: "Food"), for: .normal)
         } else if NatureOfMoney == "Income"{
-            button1.setImage(UIImage(named: "Food"), for: .normal)
+            button1.setImage(nil, for: .normal)
             button2.setImage(UIImage(named: "Food"), for: .normal)
             button3.setImage(UIImage(named: "Food"), for: .normal)
             button4.setImage(UIImage(named: "Food"), for: .normal)
