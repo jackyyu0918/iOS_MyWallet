@@ -72,14 +72,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPM-I7-0rj">
-                                                    <rect key="frame" x="16" y="5" width="63" height="33"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Analyze" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVN-cD-Jff">
+                                                    <rect key="frame" x="28" y="12" width="61" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="Analysis">
-                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    </state>
-                                                </button>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -181,9 +180,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="0z0-HM-EI3" kind="show" identifier="ShowAnalyze" id="gyK-JM-4ac"/>
                         <segue destination="DYc-y3-Pyg" kind="show" identifier="ShowCategory" id="Y9Z-hB-17e"/>
                         <segue destination="vKj-6R-2PN" kind="show" identifier="ShowSetting" id="A1I-3s-DJO"/>
+                        <segue destination="Qcg-gT-CxW" kind="show" identifier="ShowAnalyze" id="8VV-fW-6Kk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKG-j5-ftz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -301,13 +300,13 @@
             </objects>
             <point key="canvasLocation" x="3010" y="1230"/>
         </scene>
-        <!--Analysis-->
-        <scene sceneID="t1S-Zy-Hsv">
+        <!--Analyze-->
+        <scene sceneID="HVp-V0-rtj">
             <objects>
-                <viewControllerPlaceholder storyboardName="Analysis" id="0z0-HM-EI3" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vp4-8l-Ulj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Analyze" id="Qcg-gT-CxW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="waz-yx-ikq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222" y="1726"/>
+            <point key="canvasLocation" x="333" y="1726"/>
         </scene>
     </scenes>
 </document>
