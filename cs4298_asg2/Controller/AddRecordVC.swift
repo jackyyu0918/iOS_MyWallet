@@ -11,25 +11,6 @@ import CoreData
 
 class AddRecordVC: UIViewController {
 
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var valueTextField: UITextField!
-    @IBOutlet weak var remarkTextField: UITextField!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    
-    //
-    var imagePicker: ImagePicker!
-    @IBOutlet weak var imagePickerButton: UIButton!
-    @IBAction func imagePickerButtonTouched(_ sender: UIButton) {
-        //extended to ImagePickerDelegate
-        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-        self.imagePicker.present(from: sender)
-    }
-    
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var retrieveButto: UIButton!
-    @IBOutlet weak var deleteButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,16 +22,111 @@ class AddRecordVC: UIViewController {
         
         view.addGestureRecognizer(tap)
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var valueTextField: UITextField!
+    @IBOutlet weak var remarkTextField: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    //Type section
+    var NatureOfMoney: String?
+    var typeName: String?
+    @IBOutlet weak var typeNameLabel: UILabel!
+    
+    @IBAction func ChoosingNature(_ sender: UIButton) {
+        if sender.tag == 1{
+            NatureOfMoney = "Outcome"
+        } else {
+            NatureOfMoney = "Income"
+        }
+    }
+    
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
+    @IBOutlet weak var button6: UIButton!
+    @IBOutlet weak var button7: UIButton!
+    @IBOutlet weak var button8: UIButton!
+    
+    @IBAction func typeButtonOnClick(_ sender: UIButton) {
+        print(sender.tag)
+        switch sender.tag {
+        case 1:
+            if NatureOfMoney == "Income"{
+                typeName = "Salary"
+            } else {
+                typeName = "Food"
+            }
+        case 2:
+            if NatureOfMoney == "Income"{
+                typeName = "Investment"
+            } else {
+                typeName = "Shopping"
+            }
+        case 3:
+            if NatureOfMoney == "Income"{
+                typeName = "Rent"
+            } else {
+                typeName = "Traffic"
+            }
+        case 4:
+            if NatureOfMoney == "Income"{
+                typeName = "Prize"
+            } else {
+                typeName = "Bill"
+            }
+        case 5:
+            if NatureOfMoney == "Income"{
+                typeName = "Coupon"
+            } else {
+                typeName = "Entertainment"
+            }
+        case 6:
+            if NatureOfMoney == "Income"{
+                typeName = "Lottery"
+            } else {
+                typeName = "Pet"
+            }
+        case 7:
+            if NatureOfMoney == "Income"{
+                typeName = "Refund"
+            } else {
+                typeName = "Health Care"
+            }
+        case 8:
+            if NatureOfMoney == "Income"{
+                typeName = "Other"
+            } else {
+                typeName = "Other"
+            }
+        default:
+            break
+        }
+        typeNameLabel.text = typeName
+
+    }
+    
+    
+    
+    //select of camera, album
+    var imagePicker: ImagePicker!
+    @IBOutlet weak var imagePickerButton: UIButton!
+    @IBAction func imagePickerButtonTouched(_ sender: UIButton) {
+        //extended to ImagePickerDelegate
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        self.imagePicker.present(from: sender)
+    }
     
     //Calls this function when the tap is recognized.
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func createData(){
@@ -66,7 +142,7 @@ class AddRecordVC: UIViewController {
         record.setValue("Food", forKeyPath: "photo")
         record.setValue("Food", forKeyPath: "value")
         */
-        record.setValue("Food", forKeyPath: "type")
+        record.setValue(typeName, forKeyPath: "type")
         record.setValue(datePicker.date, forKeyPath: "date")
         record.setValue(remarkTextField.text, forKeyPath: "remark")
         record.setValue(imageView.image?.pngData(), forKeyPath: "photo")
@@ -156,7 +232,7 @@ class AddRecordVC: UIViewController {
         }
     }*/
     
-    func deleteData(){
+    /*func deleteData(){
         
         //As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -187,7 +263,7 @@ class AddRecordVC: UIViewController {
         {
             print(error)
         }
-    }
+    }*/
     
     func deleteAllData(entity: String)
     {
@@ -214,6 +290,10 @@ class AddRecordVC: UIViewController {
     
     
     // 3 action
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var retrieveButto: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     @IBAction func addRecord(_ sender: Any) {
         createData()
     }
