@@ -71,13 +71,23 @@ class AddRecordVC: UIViewController {
         record.setValue(remarkTextField.text, forKeyPath: "remark")
         record.setValue(imageView.image?.pngData(), forKeyPath: "photo")
         record.setValue((Double)(valueTextField.text!), forKeyPath: "value")
-        
+
+        //that's the way you tran from NSDATA to image
+         /*
+           let binaryImage = imageView.image?.pngData()
+           testImageView.image = UIImage(data: <#T##Data#>)
+         */
         
         do {
             try managedContext.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        
+        let controller = UIAlertController(title: "Success!", message: "New record has been added.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        controller.addAction(okAction)
+        present(controller, animated: true, completion: nil)
     }
     
     //from github
@@ -103,6 +113,7 @@ class AddRecordVC: UIViewController {
                 print(data.value(forKey: "type") as! String)
                 print(data.value(forKey: "date") as! Date)
                 print(data.value(forKey: "remark") as! String)
+                //get Binaryform of an image
                 print(data.value(forKey: "photo") as! NSData)
                 print(data.value(forKey: "value") as! Double)
             }
@@ -113,7 +124,7 @@ class AddRecordVC: UIViewController {
         }
     }
     
-    func updateData(){
+    /*func updateData(){
         
         //As we know that container is set up in the AppDelegates so we need to refer that container.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -143,8 +154,7 @@ class AddRecordVC: UIViewController {
         {
             print(error)
         }
-        
-    }
+    }*/
     
     func deleteData(){
         
@@ -190,6 +200,7 @@ class AddRecordVC: UIViewController {
         do
         {
             let results = try managedContext.fetch(fetchRequest)
+            
             for managedObject in results
             {
                 let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
@@ -212,9 +223,9 @@ class AddRecordVC: UIViewController {
         retrieveData()
     }
     
-    @IBAction func deleteRecord(_ sender: Any) {
+    /*@IBAction func deleteRecord(_ sender: Any) {
         deleteAllData(entity: "Record")
-    }
+    }*/
     
     @IBAction func debuggerVariable(_ sender: Any) {
         print("imageView.image:  \(imageView.image)")
