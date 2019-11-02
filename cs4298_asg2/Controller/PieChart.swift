@@ -16,6 +16,7 @@ struct Segment {
     
     // the value of a given segment – will be used to automatically calculate a ratio
     var value: CGFloat
+    
 }
 
 class PieChartView: UIView {
