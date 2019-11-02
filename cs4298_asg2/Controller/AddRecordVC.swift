@@ -26,60 +26,59 @@ class AddRecordVC: UIViewController {
         self.imagePicker.present(from: sender)
     }
     
-    
-    
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var retrieveButto: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
-    
-    
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
     }
     
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
-    
-    
-    
-    
-    
-    
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     func createData(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let recordEntity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)
     
+        let record = NSManagedObject(entity: recordEntity!, insertInto: managedContext)
+        /*
+        record.setValue("Food", forKeyPath: "type")
+        record.setValue("Food", forKeyPath: "date")
+        record.setValue("Food", forKeyPath: "remark")
+        record.setValue("Food", forKeyPath: "photo")
+        record.setValue("Food", forKeyPath: "value")
+        */
+        record.setValue("Food", forKeyPath: "type")
+        record.setValue(datePicker.date, forKeyPath: "date")
+        record.setValue(remarkTextField.text, forKeyPath: "remark")
+        record.setValue(imageView.image?.pngData(), forKeyPath: "photo")
+        record.setValue((Double)(valueTextField.text!), forKeyPath: "value")
         
-        //preparation for photo
-        //NSData *imageData = UIImagePNGRepresentation(image);
-        
-        for i in 1...5{
-            let record = NSManagedObject(entity: recordEntity!, insertInto: managedContext)
-            record.setValue("typeA \(i)", forKeyPath: "type")
-            record.setValue(datePicker.date, forKeyPath: "date")
-            record.setValue(remarkTextField.text, forKeyPath: "remark")
-            record.setValue("123", forKeyPath: "photo")
-            record.setValue((Double)(valueTextField.text!), forKeyPath: "value")
         
         do {
             try managedContext.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        }
     }
-    
     
     //from github
     //https://github.com/AnkurVekariya/CoreDataSwiftDemo/blob/master/CoreDataCRUD/ViewController.swift
@@ -102,9 +101,9 @@ class AddRecordVC: UIViewController {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
                 print(data.value(forKey: "type") as! String)
-                print(data.value(forKey: "date") as! String)
+                print(data.value(forKey: "date") as! Date)
                 print(data.value(forKey: "remark") as! String)
-                print(data.value(forKey: "photo") as! String)
+                print(data.value(forKey: "photo") as! NSData)
                 print(data.value(forKey: "value") as! Double)
             }
             
@@ -201,12 +200,9 @@ class AddRecordVC: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     
+    // 3 action
     @IBAction func addRecord(_ sender: Any) {
         createData()
     }
@@ -220,8 +216,17 @@ class AddRecordVC: UIViewController {
         deleteAllData(entity: "Record")
     }
     
+    @IBAction func debuggerVariable(_ sender: Any) {
+        print("imageView.image:  \(imageView.image)")
+        print("imageView.image?.pngData(): \(imageView.image?.pngData())")
+        print("datePicker.date:  \(datePicker.date)")
+        print("remarkTextField.text:  \(remarkTextField.text)")
+        print("(Double)(valueTextField.text!):  \((Double)(valueTextField.text!))")
+    }
+    
 }
 
+//make the view contoller also a imagePicker
 extension AddRecordVC: ImagePickerDelegate {
     
     func didSelect(image: UIImage?) {
