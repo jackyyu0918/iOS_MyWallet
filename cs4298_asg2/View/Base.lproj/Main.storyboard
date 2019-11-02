@@ -72,13 +72,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Analyze" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eog-vA-OkX">
-                                                    <rect key="frame" x="20" y="11" width="65" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPM-I7-0rj">
+                                                    <rect key="frame" x="16" y="5" width="63" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="Analysis">
+                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -180,7 +181,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="tpE-eU-WBO" kind="show" identifier="ShowAnalyze" id="gyK-JM-4ac"/>
+                        <segue destination="0z0-HM-EI3" kind="show" identifier="ShowAnalyze" id="gyK-JM-4ac"/>
                         <segue destination="DYc-y3-Pyg" kind="show" identifier="ShowCategory" id="Y9Z-hB-17e"/>
                         <segue destination="vKj-6R-2PN" kind="show" identifier="ShowSetting" id="A1I-3s-DJO"/>
                     </connections>
@@ -292,30 +293,6 @@
             </objects>
             <point key="canvasLocation" x="2400" y="1726"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="lzu-zb-jjv">
-            <objects>
-                <viewController id="tpE-eU-WBO" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QiC-34-vhm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Analyze page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmQ-K1-5CQ">
-                                <rect key="frame" x="163" y="182" width="103" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Qb6-4V-I2i"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NOU-cD-pXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="222" y="1726"/>
-        </scene>
         <!--AddRecordPage-->
         <scene sceneID="Ac3-or-uuN">
             <objects>
@@ -323,6 +300,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vx9-YR-vaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3010" y="1230"/>
+        </scene>
+        <!--Analysis-->
+        <scene sceneID="t1S-Zy-Hsv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Analysis" id="0z0-HM-EI3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vp4-8l-Ulj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="222" y="1726"/>
         </scene>
     </scenes>
 </document>
