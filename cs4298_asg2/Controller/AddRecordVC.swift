@@ -163,6 +163,7 @@ class AddRecordVC: UIViewController {
              record.setValue("Food", forKeyPath: "photo")
              record.setValue("Food", forKeyPath: "value")
              */
+            
             record.setValue(typeName, forKeyPath: "type")
             record.setValue(datePicker.date, forKeyPath: "date")
             record.setValue(remarkTextField.text, forKeyPath: "remark")
