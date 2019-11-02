@@ -33,15 +33,28 @@ class AddRecordVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     //Type section
-    var NatureOfMoney: String?
+
+    var NatureOfMoney: String = ""
+    @IBOutlet weak var outcomeButton: UIButton!
+    @IBOutlet weak var incomeButton: UIButton!
+    
     var typeName: String?
     @IBOutlet weak var typeNameLabel: UILabel!
+    
     
     @IBAction func ChoosingNature(_ sender: UIButton) {
         if sender.tag == 1{
             NatureOfMoney = "Outcome"
-        } else {
+            outcomeButton.setTitleColor(UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1), for: .normal)
+            incomeButton.setTitleColor(.gray, for: .normal)
+            typeNameLabel.text = ""
+            updateUI()
+        } else if sender.tag == 2{
             NatureOfMoney = "Income"
+            incomeButton.setTitleColor(UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1), for: .normal)
+            outcomeButton.setTitleColor(.gray, for: .normal)
+            typeNameLabel.text = ""
+            updateUI()
         }
     }
     
@@ -56,6 +69,7 @@ class AddRecordVC: UIViewController {
     
     @IBAction func typeButtonOnClick(_ sender: UIButton) {
         print(sender.tag)
+        print(NatureOfMoney)
         switch sender.tag {
         case 1:
             if NatureOfMoney == "Income"{
@@ -315,6 +329,27 @@ class AddRecordVC: UIViewController {
         print("(Double)(valueTextField.text!):  \((Double)(valueTextField.text!))")
     }
     
+    func updateUI(){
+        if NatureOfMoney == "Outcome" {
+            button1.setImage(UIImage(named: "FoodIcon.png"), for: .normal)
+            button2.setImage(UIImage(named: "Food"), for: .normal)
+            button3.setImage(UIImage(named: "Food"), for: .normal)
+            button4.setImage(UIImage(named: "Food"), for: .normal)
+            button5.setImage(UIImage(named: "Food"), for: .normal)
+            button6.setImage(UIImage(named: "Food"), for: .normal)
+            button7.setImage(UIImage(named: "Food"), for: .normal)
+            button8.setImage(UIImage(named: "Food"), for: .normal)
+        } else if NatureOfMoney == "Income"{
+            button1.setImage(UIImage(named: "Food"), for: .normal)
+            button2.setImage(UIImage(named: "Food"), for: .normal)
+            button3.setImage(UIImage(named: "Food"), for: .normal)
+            button4.setImage(UIImage(named: "Food"), for: .normal)
+            button5.setImage(UIImage(named: "Food"), for: .normal)
+            button6.setImage(UIImage(named: "Food"), for: .normal)
+            button7.setImage(UIImage(named: "Food"), for: .normal)
+            button8.setImage(UIImage(named: "Food"), for: .normal)
+        }
+    }
 }
 
 //make the view contoller also a imagePicker
