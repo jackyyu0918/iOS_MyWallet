@@ -18,8 +18,6 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     let CategoryPhoto = [ #imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "Shopping"),#imageLiteral(resourceName: "Traffic"),#imageLiteral(resourceName: "Bill"),#imageLiteral(resourceName: "Entertainment"),#imageLiteral(resourceName: "Pet"),#imageLiteral(resourceName: "HealthCare"),#imageLiteral(resourceName: "Others")]
     
     
-    let proportion:[Float] = [57,30,100,40,40,40,40,40]
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -38,17 +36,34 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     }
     
     override func viewDidLoad() {
+        
+        //Calculation for the percentage
+        let AmountOfCategories:[Float] = [57,30,100,200,60,100,45,10]  //387
+        let sum:Float = AmountOfCategories.reduce(0, +)
+        var proportion : Array<Float> = Array(repeating: 0, count: 8)
+        var count = 0
+        
+        while count < AmountOfCategories.count{
+            
+            proportion[count] = (AmountOfCategories[count] / sum) * 100
+            print(proportion[count])
+            count+=1
+            
+        }
+        
+        
+        // Create pie chart based on above percentage
         let pieChartView = PieChartView()
         pieChartView.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: 200)
         pieChartView.segments = [
-            Segment(color: .red, value: 57),
-            Segment(color: .blue, value: 30),
-            Segment(color: .green, value: 100),
-            Segment(color: .yellow, value: 40),
-            Segment(color: .purple,value:40),
-            Segment(color: .black,value:40),
-            Segment(color: .orange, value:40),
-            Segment(color: .brown, value:40)
+            Segment(color: .red, value: CGFloat(proportion[0])),
+            Segment(color: .blue, value: CGFloat(proportion[1])),
+            Segment(color: .green, value: CGFloat(proportion[2])),
+            Segment(color: .yellow, value: CGFloat(proportion[3])),
+            Segment(color: .purple,value: CGFloat(proportion[4])),
+            Segment(color: .black,value:CGFloat(proportion[5])),
+            Segment(color: .orange, value:CGFloat(proportion[6])),
+            Segment(color: .brown, value:CGFloat(proportion[7]))
         ]
         view.addSubview(pieChartView)
 
