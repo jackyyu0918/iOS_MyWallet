@@ -126,8 +126,6 @@ class AddRecordVC: UIViewController {
 
     }
     
-    
-    
     //select of camera, album
     var imagePicker: ImagePicker!
     @IBOutlet weak var imagePickerButton: UIButton!
@@ -163,7 +161,7 @@ class AddRecordVC: UIViewController {
              record.setValue("Food", forKeyPath: "photo")
              record.setValue("Food", forKeyPath: "value")
              */
-            
+            record.setValue(NatureOfMoney, forKeyPath: "nature")
             record.setValue(typeName, forKeyPath: "type")
             record.setValue(datePicker.date, forKeyPath: "date")
             record.setValue(remarkTextField.text, forKeyPath: "remark")
@@ -211,12 +209,13 @@ class AddRecordVC: UIViewController {
         do {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
+                print(data.value(forKey: "nature") as! String)
                 print(data.value(forKey: "type") as! String)
                 print(data.value(forKey: "date") as! Date)
-                print(data.value(forKey: "remark") as! String)
-                //get Binaryform of an image
-                print(data.value(forKey: "photo") as! NSData)
                 print(data.value(forKey: "value") as! Double)
+                print(data.value(forKey: "remark") as? String)
+                //get Binaryform of an image
+                print(data.value(forKey: "photo") as? NSData)
             }
             
         } catch {
@@ -343,23 +342,24 @@ class AddRecordVC: UIViewController {
     func updateUI(){
         //to solve blue button, change to custom button
         if NatureOfMoney == "Outcome" {
-            button1.setImage(UIImage(named: "FoodIcon.png"), for: .normal)
-            button2.setImage(UIImage(named: "Food.png"), for: .normal)
-            button3.setImage(UIImage(named: "Food"), for: .normal)
-            button4.setImage(UIImage(named: "Food"), for: .normal)
-            button5.setImage(UIImage(named: "Food"), for: .normal)
-            button6.setImage(UIImage(named: "Food"), for: .normal)
-            button7.setImage(UIImage(named: "Food"), for: .normal)
-            button8.setImage(UIImage(named: "Food"), for: .normal)
+            button1.setImage(UIImage(named: "Food"), for: .normal)
+            button2.setImage(UIImage(named: "Shopping"), for: .normal)
+            button3.setImage(UIImage(named: "Traffic"), for: .normal)
+            button4.setImage(UIImage(named: "Bill"), for: .normal)
+            button5.setImage(UIImage(named: "Entertainment"), for: .normal)
+            button6.setImage(UIImage(named: "Pet"), for: .normal)
+            button7.setImage(UIImage(named: "HealthCare"), for: .normal)
+            button8.setImage(UIImage(named: "Others"), for: .normal)
         } else if NatureOfMoney == "Income"{
             button1.setImage(nil, for: .normal)
-            button2.setImage(UIImage(named: "Food"), for: .normal)
-            button3.setImage(UIImage(named: "Food"), for: .normal)
-            button4.setImage(UIImage(named: "Food"), for: .normal)
-            button5.setImage(UIImage(named: "Food"), for: .normal)
-            button6.setImage(UIImage(named: "Food"), for: .normal)
-            button7.setImage(UIImage(named: "Food"), for: .normal)
-            button8.setImage(UIImage(named: "Food"), for: .normal)
+            button2.setImage(UIImage(named: "Salary"), for: .normal)
+            button3.setImage(UIImage(named: "Investment"), for: .normal)
+            button4.setImage(UIImage(named: "Rent"), for: .normal)
+            button5.setImage(UIImage(named: "Prize"), for: .normal)
+            button6.setImage(UIImage(named: "Coupon"), for: .normal)
+            button7.setImage(UIImage(named: "Lottery"), for: .normal)
+            button8.setImage(UIImage(named: "Refund"), for: .normal)
+            button8.setImage(UIImage(named: "Others"), for: .normal)
         }
     }
 }
