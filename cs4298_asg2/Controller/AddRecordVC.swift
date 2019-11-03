@@ -205,7 +205,7 @@ class AddRecordVC: UIViewController {
         
         //        fetchRequest.fetchLimit = 1
         //        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur")
-                fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
         //
         do {
             let result = try managedContext.fetch(fetchRequest)
