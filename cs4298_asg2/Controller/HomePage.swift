@@ -37,26 +37,15 @@ class HomePage: UIViewController {
     }
     
     @IBAction func pressButton(_ sender: Any) {
-        let record:Record = Record(context: DbService.context)
-        record.value = 0
-        DbService.saveContext()
-        fetchRecored()
+
+        Record.addRecord(value: 1.3)
+        var results =  Record.fetchRecored()
         
+        for result in results{
+            print(result.value)
+        }
     }
     
-    func fetchRecored(){
-        let fetchRequest: NSFetchRequest<Record> = Record.fetchRequest()
-        
-        do {
-            let results: [Record] = try DbService.context.fetch(fetchRequest)
-            print(results.count)
-            for result in results{
-                print(result.value)
-            }
-            
-        } catch  {
-        }
-        
-    }
+
     
 }
