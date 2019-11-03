@@ -14,22 +14,23 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var Stat_TableView: UITableView!
     
   
+    let categories:[String] = ["Food","Shopping","Traffic","Bill","Entertainment","Pet","Health Care","Others"]
+    let CategoryPhoto = [ #imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "Shopping"),#imageLiteral(resourceName: "Traffic"),#imageLiteral(resourceName: "Bill"),#imageLiteral(resourceName: "Entertainment"),#imageLiteral(resourceName: "Pet"),#imageLiteral(resourceName: "HealthCare"),#imageLiteral(resourceName: "Others")]
     
     
-    let animals:[String] = ["Alligator","Bat","Bear","Bird","Dog","Dog1","Dog2","Dog4"]
-    let CategoryPhoto = [ #imageLiteral(resourceName: "Menu_icon_icon-icons.com_71858"),#imageLiteral(resourceName: "Unknown-1"),#imageLiteral(resourceName: "Wallet-icon"),#imageLiteral(resourceName: "Unknown-2"),#imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "Unknown"),#imageLiteral(resourceName: "Menu_icon_icon-icons.com_71858"),#imageLiteral(resourceName: "Wallet-icon")]
+    let proportion:[Float] = [57,30,100,40,40,40,40,40]
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animals.count
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:Analysis_TableCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Analysis_TableCell
-        cell.textLabel?.text = animals[indexPath.row]
+        cell.textLabel?.text = categories[indexPath.row]
         cell.imageView?.image = CategoryPhoto[indexPath.row]
         cell.percantage_bar.transform = CGAffineTransform(scaleX: 1, y: 3)
      
@@ -44,11 +45,14 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
             Segment(color: .blue, value: 30),
             Segment(color: .green, value: 100),
             Segment(color: .yellow, value: 40),
-            Segment(color: .purple, value: 40)
+            Segment(color: .purple,value:40),
+            Segment(color: .black,value:40),
+            Segment(color: .orange, value:40),
+            Segment(color: .brown, value:40)
         ]
         view.addSubview(pieChartView)
 
-      //  Category_ProgressBar.transform = CGAffineTransform(scaleX: 1, y: 4)
+ 
     
         
         super.viewDidLoad()
