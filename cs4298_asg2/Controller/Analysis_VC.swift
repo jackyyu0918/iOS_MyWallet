@@ -13,6 +13,10 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var Stat_TableView: UITableView!
     
+
+    
+ 
+    
     let categories:[String] = ["Food","Shopping","Traffic","Bill","Entertainment","Pet","Health Care","Others"]
     let CategoryPhoto = [ #imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "Shopping"),#imageLiteral(resourceName: "Traffic"),#imageLiteral(resourceName: "Bill"),#imageLiteral(resourceName: "Entertainment"),#imageLiteral(resourceName: "Pet"),#imageLiteral(resourceName: "HealthCare"),#imageLiteral(resourceName: "Others")]
     let AmountOfCategories:[Float] = [57,30,200,200,60,500,45,10]
