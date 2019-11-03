@@ -12,5 +12,6 @@ import UIKit
 class Analysis_TableCell : UITableViewCell{
 
     @IBOutlet weak var percantage_bar: UIProgressView!
+    @IBOutlet weak var Percentage_Label: UILabel!
     
 }

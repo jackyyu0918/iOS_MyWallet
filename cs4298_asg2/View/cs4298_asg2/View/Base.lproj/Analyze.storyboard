@@ -45,9 +45,17 @@
                                                     <rect key="frame" x="209" y="20" width="144" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </progressView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwG-iH-gAc">
+                                                    <rect key="frame" x="361" y="10" width="45" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="Percentage_Label" destination="wwG-iH-gAc" id="PO5-DJ-T97"/>
                                             <outlet property="percantage_bar" destination="KHc-eV-R6m" id="y62-ky-42Z"/>
                                         </connections>
                                     </tableViewCell>

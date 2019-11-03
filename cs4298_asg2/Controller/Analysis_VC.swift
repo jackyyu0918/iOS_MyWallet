@@ -13,44 +13,39 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var Stat_TableView: UITableView!
     
-  
     let categories:[String] = ["Food","Shopping","Traffic","Bill","Entertainment","Pet","Health Care","Others"]
     let CategoryPhoto = [ #imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "Shopping"),#imageLiteral(resourceName: "Traffic"),#imageLiteral(resourceName: "Bill"),#imageLiteral(resourceName: "Entertainment"),#imageLiteral(resourceName: "Pet"),#imageLiteral(resourceName: "HealthCare"),#imageLiteral(resourceName: "Others")]
+    let AmountOfCategories:[Float] = [57,30,200,200,60,100,45,10]
+    var proportion : Array<Float> = Array(repeating: 0, count: 8)
+    var uiColorArray = [UIColor]()
     
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:Analysis_TableCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Analysis_TableCell
-        cell.textLabel?.text = categories[indexPath.row]
-        cell.imageView?.image = CategoryPhoto[indexPath.row]
-        cell.percantage_bar.transform = CGAffineTransform(scaleX: 1, y: 3)
-     
-        return cell
-    }
-    
+
     override func viewDidLoad() {
         
+        //color for bar chart
+        self.uiColorArray.append(UIColor.red) // in Swift 3, its UIColor.blue
+        self.uiColorArray.append(UIColor.blue)
+        self.uiColorArray.append(UIColor.green)
+        self.uiColorArray.append(UIColor.yellow)
+        self.uiColorArray.append(UIColor.purple)
+        self.uiColorArray.append(UIColor.black)
+        self.uiColorArray.append(UIColor.black)
+        self.uiColorArray.append(UIColor.orange)
+        self.uiColorArray.append(UIColor.brown)
+        
         //Calculation for the percentage
-        let AmountOfCategories:[Float] = [57,30,100,200,60,100,45,10]  //387
+     
         let sum:Float = AmountOfCategories.reduce(0, +)
-        var proportion : Array<Float> = Array(repeating: 0, count: 8)
+       
         var count = 0
         
         while count < AmountOfCategories.count{
             
-            proportion[count] = (AmountOfCategories[count] / sum) * 100
+            proportion[count] = (AmountOfCategories[count] / sum)
             print(proportion[count])
             count+=1
             
         }
-        
         
         // Create pie chart based on above percentage
         let pieChartView = PieChartView()
@@ -68,9 +63,31 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         view.addSubview(pieChartView)
 
  
-    
-        
         super.viewDidLoad()
         }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:Analysis_TableCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Analysis_TableCell
+        cell.textLabel?.text = categories[indexPath.row]
+        cell.imageView?.image = CategoryPhoto[indexPath.row]
+        cell.percantage_bar.transform = CGAffineTransform(scaleX: 1, y: 3)
+        DispatchQueue.main.async {
+            cell.percantage_bar.setProgress(self.proportion[indexPath.row], animated: false)
+
+        }
+        cell.percantage_bar.progressTintColor = uiColorArray[indexPath.row]
+       //cellLabel.text = "\(proportion[indexPath.row])"
+        //cell.textAlignment = .center
+        cell.Percentage_Label.text = "11%"
+        
+        return cell
+    }
 }
