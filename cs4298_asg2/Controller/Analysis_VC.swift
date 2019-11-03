@@ -13,15 +13,26 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var Stat_TableView: UITableView!
     
-
+    var  totalFood:Float = 0
+    var  totalShopping:Float = 0
+    var  totalTraffic:Float = 0
+    var  totalBill:Float = 0
+    var  totalEntertainment:Float = 0
+    var  totalPet:Float = 0
+    var  totalHealthCare:Float = 0
+    var  totalOthers:Float = 0
     
- 
+    var results =  Record.fetchRecored()
+    
+   
     
     let categories:[String] = ["Food","Shopping","Traffic","Bill","Entertainment","Pet","Health Care","Others"]
     let CategoryPhoto = [ #imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "Shopping"),#imageLiteral(resourceName: "Traffic"),#imageLiteral(resourceName: "Bill"),#imageLiteral(resourceName: "Entertainment"),#imageLiteral(resourceName: "Pet"),#imageLiteral(resourceName: "HealthCare"),#imageLiteral(resourceName: "Others")]
-    let AmountOfCategories:[Float] = [57,30,200,200,60,500,45,10]
+    
     var proportion : Array<Float> = Array(repeating: 0, count: 8)
     var uiColorArray = [UIColor]()
+    
+
     
 
     override func viewDidLoad() {
@@ -38,7 +49,7 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         self.uiColorArray.append(UIColor.brown)
         
         //Calculation for the percentage
-     
+     let AmountOfCategories:[Float] = [self.totalFood,30,200,200,60,500,45,10]
         let sum:Float = AmountOfCategories.reduce(0, +)
        
         var count = 0
@@ -46,7 +57,7 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         while count < AmountOfCategories.count{
             
             proportion[count] = (AmountOfCategories[count] / sum)
-            print(proportion[count])
+           // print(proportion[count])
             count+=1
             
         }
@@ -70,6 +81,7 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
         }
     
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -80,6 +92,36 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:Analysis_TableCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Analysis_TableCell
+        
+        for result in results{
+            if(result.type == "Food"){
+                totalFood += (Float)(result.value)
+            }
+            else if(result.type == "Shopping"){
+                totalShopping += (Float)(result.value)
+            }
+            else if(result.type == "Traffic"){
+                totalTraffic += (Float)(result.value)
+            }
+            else if(result.type == "Bill"){
+                totalBill += (Float)(result.value)
+            }
+            else if(result.type == "Entertainment"){
+                totalEntertainment += (Float)(result.value)
+            }
+            else if(result.type == "Pet"){
+                totalPet += (Float)(result.value)
+            }
+            else if(result.type == "Health Care"){
+                totalHealthCare += (Float)(result.value)
+            }
+            else if(result.type == "Other"){
+                totalOthers += (Float)(result.value)
+            }
+            
+            
+        }
+        
         cell.textLabel?.text = categories[indexPath.row]
         cell.imageView?.image = CategoryPhoto[indexPath.row]
         cell.percantage_bar.transform = CGAffineTransform(scaleX: 1, y: 3)
@@ -98,4 +140,6 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    
 }
