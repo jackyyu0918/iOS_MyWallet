@@ -142,7 +142,15 @@ class AddRecordVC: UIViewController {
     }
     
     func createData(){
-        if typeName != nil && (Double)(valueTextField.text!) != nil {
+        if NatureOfMoney == nil || typeName == nil || (Double)(valueTextField.text!) == nil {
+            
+            let controller = UIAlertController(title: "Failed!", message: "You must fill in the details, type and value must be filled.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            controller.addAction(okAction)
+            present(controller, animated: true, completion: nil)
+            
+           
+        } else {
             let controller = UIAlertController(title: "Success!", message: "New record has been added.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             controller.addAction(okAction)
@@ -179,13 +187,6 @@ class AddRecordVC: UIViewController {
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
-            
-        } else {
-            
-            let controller = UIAlertController(title: "Failed!", message: "You must fill in the details, type and value must be filled.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            controller.addAction(okAction)
-            present(controller, animated: true, completion: nil)
         }
     }
     
@@ -204,7 +205,7 @@ class AddRecordVC: UIViewController {
         
         //        fetchRequest.fetchLimit = 1
         //        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur")
-        //        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "email", ascending: false)]
+                fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
         //
         do {
             let result = try managedContext.fetch(fetchRequest)
@@ -216,6 +217,7 @@ class AddRecordVC: UIViewController {
                 print(data.value(forKey: "remark") as? String)
                 //get Binaryform of an image
                 print(data.value(forKey: "photo") as? NSData)
+                print("\n")
             }
             
         } catch {
