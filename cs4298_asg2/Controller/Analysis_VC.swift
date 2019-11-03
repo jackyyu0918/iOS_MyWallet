@@ -11,6 +11,11 @@ import UIKit
 
 class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var Stat_TableView: UITableView!
+    
+  
+    
+    
     let animals:[String] = ["Alligator","Bat","Bear","Bird","Dog","Dog1","Dog2","Dog4"]
     let CategoryPhoto = [ #imageLiteral(resourceName: "Menu_icon_icon-icons.com_71858"),#imageLiteral(resourceName: "Unknown-1"),#imageLiteral(resourceName: "Wallet-icon"),#imageLiteral(resourceName: "Unknown-2"),#imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "Unknown"),#imageLiteral(resourceName: "Menu_icon_icon-icons.com_71858"),#imageLiteral(resourceName: "Wallet-icon")]
     
@@ -23,9 +28,11 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell:Analysis_TableCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Analysis_TableCell
         cell.textLabel?.text = animals[indexPath.row]
         cell.imageView?.image = CategoryPhoto[indexPath.row]
+        cell.percantage_bar.transform = CGAffineTransform(scaleX: 1, y: 3)
+     
         return cell
     }
     
