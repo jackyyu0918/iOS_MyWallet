@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6B7B01A236EB0920002FDE3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B7B018236EB0920002FDE3 /* Home.storyboard */; };
 		A77F0B94236D8046000DAC3F /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F0B93236D8046000DAC3F /* PieChart.swift */; };
 		A7A47A22236DAC720000D087 /* Analysis_TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A47A21236DAC720000D087 /* Analysis_TableCell.swift */; };
 		A7C975B0236D89C500CE04AC /* Analyze.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C975AE236D89C500CE04AC /* Analyze.storyboard */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6B7B019236EB0920002FDE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = cs4298_asg2/View/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		A77F0B93236D8046000DAC3F /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		A7A47A21236DAC720000D087 /* Analysis_TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis_TableCell.swift; sourceTree = "<group>"; };
 		A7C975AF236D89C500CE04AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = cs4298_asg2/View/Base.lproj/Analyze.storyboard; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		FACF7744236875E600740E3C = {
 			isa = PBXGroup;
 			children = (
+				A6B7B018236EB0920002FDE3 /* Home.storyboard */,
 				FACF774F236875E600740E3C /* cs4298_asg2 */,
 				FACF7767236875E800740E3C /* cs4298_asg2Tests */,
 				FACF7772236875E800740E3C /* cs4298_asg2UITests */,
@@ -292,6 +295,7 @@
 				FA2504DA236C048C00718148 /* AddRecordPage.storyboard in Resources */,
 				FACF775E236875E800740E3C /* LaunchScreen.storyboard in Resources */,
 				FACF775B236875E800740E3C /* Assets.xcassets in Resources */,
+				A6B7B01A236EB0920002FDE3 /* Home.storyboard in Resources */,
 				A7C975B0236D89C500CE04AC /* Analyze.storyboard in Resources */,
 				FACF7756236875E600740E3C /* Main.storyboard in Resources */,
 			);
@@ -365,6 +369,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A6B7B018236EB0920002FDE3 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6B7B019236EB0920002FDE3 /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
 		A7C975AE236D89C500CE04AC /* Analyze.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
