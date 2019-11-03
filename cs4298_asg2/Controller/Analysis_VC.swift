@@ -15,7 +15,7 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     let categories:[String] = ["Food","Shopping","Traffic","Bill","Entertainment","Pet","Health Care","Others"]
     let CategoryPhoto = [ #imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "Shopping"),#imageLiteral(resourceName: "Traffic"),#imageLiteral(resourceName: "Bill"),#imageLiteral(resourceName: "Entertainment"),#imageLiteral(resourceName: "Pet"),#imageLiteral(resourceName: "HealthCare"),#imageLiteral(resourceName: "Others")]
-    let AmountOfCategories:[Float] = [57,30,200,200,60,100,45,10]
+    let AmountOfCategories:[Float] = [57,30,200,200,60,500,45,10]
     var proportion : Array<Float> = Array(repeating: 0, count: 8)
     var uiColorArray = [UIColor]()
     
@@ -86,7 +86,11 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         cell.percantage_bar.progressTintColor = uiColorArray[indexPath.row]
        //cellLabel.text = "\(proportion[indexPath.row])"
         //cell.textAlignment = .center
-        cell.Percentage_Label.text = "11%"
+        
+        //var myIntValue = (Float)((round((proportion[indexPath.row]*100))/100))*100
+        let myIntValue = proportion[indexPath.row] * 100
+        let showValue = Float(round(myIntValue*10)/10)
+       cell.Percentage_Label.text = "\(showValue) %"
         
         return cell
     }
