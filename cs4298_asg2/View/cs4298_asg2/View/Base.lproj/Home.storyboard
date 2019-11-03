@@ -10,47 +10,56 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainVC-->
+        <!--Home Page-->
         <scene sceneID="rvB-2h-FUy">
             <objects>
-                <viewController id="wuM-hr-pw5" customClass="MainVC" customModule="cs4298_asg2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wuM-hr-pw5" customClass="HomePage" customModule="cs4298_asg2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g96-aI-lsa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tp-od-Qkd">
-                                <rect key="frame" x="150" y="188" width="114" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Show other view"/>
-                                <connections>
-                                    <segue destination="wdP-5c-yVO" kind="show" id="non-RZ-aE0"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQ3-MS-nI4">
-                                <rect key="frame" x="163" y="130" width="89" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJz-kB-aTO">
+                                <rect key="frame" x="0.0" y="74" width="414" height="788"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d6A-uI-O8L">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="788"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="d6A-uI-O8L" firstAttribute="top" secondItem="WJz-kB-aTO" secondAttribute="top" id="NWm-Qt-HWg"/>
+                                    <constraint firstItem="d6A-uI-O8L" firstAttribute="leading" secondItem="WJz-kB-aTO" secondAttribute="leading" id="XbS-dN-hYm"/>
+                                    <constraint firstAttribute="trailing" secondItem="d6A-uI-O8L" secondAttribute="trailing" id="bXp-i7-QI8"/>
+                                    <constraint firstAttribute="bottom" secondItem="d6A-uI-O8L" secondAttribute="bottom" id="ef9-Mn-YJd"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQ3-MS-nI4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PyC-GY-zhL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jb-7G-Y6j">
-                                <rect key="frame" x="164" y="283" width="45" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="A_Test"/>
-                                <connections>
-                                    <segue destination="7x8-cb-7CE" kind="showDetail" id="096-zY-qlo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6g-Ec-BZU">
-                                <rect key="frame" x="218" y="394" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiu-Jq-fO2">
+                                <rect key="frame" x="318" y="782" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="VJq-U1-Rt7" kind="show" id="01E-sH-E5o"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WJz-kB-aTO" firstAttribute="top" secondItem="hQ3-MS-nI4" secondAttribute="bottom" id="0x3-QE-BHg"/>
+                            <constraint firstItem="hQ3-MS-nI4" firstAttribute="top" secondItem="eYh-Cb-8K0" secondAttribute="top" id="Bly-EG-5rR"/>
+                            <constraint firstItem="WJz-kB-aTO" firstAttribute="trailing" secondItem="eYh-Cb-8K0" secondAttribute="trailing" id="C3Q-PO-AnU"/>
+                            <constraint firstItem="hQ3-MS-nI4" firstAttribute="trailing" secondItem="eYh-Cb-8K0" secondAttribute="trailing" id="KCt-Z6-Hdd"/>
+                            <constraint firstItem="WJz-kB-aTO" firstAttribute="bottom" secondItem="eYh-Cb-8K0" secondAttribute="bottom" id="Pdh-of-gsc"/>
+                            <constraint firstItem="hQ3-MS-nI4" firstAttribute="leading" secondItem="eYh-Cb-8K0" secondAttribute="leading" id="TaN-19-oFa"/>
+                            <constraint firstItem="fiu-Jq-fO2" firstAttribute="bottom" secondItem="eYh-Cb-8K0" secondAttribute="bottom" constant="-50" id="fZU-yq-aOU"/>
+                            <constraint firstItem="fiu-Jq-fO2" firstAttribute="trailing" secondItem="g96-aI-lsa" secondAttribute="trailing" constant="-50" id="gbf-kX-VXG"/>
+                            <constraint firstItem="WJz-kB-aTO" firstAttribute="leading" secondItem="eYh-Cb-8K0" secondAttribute="leading" id="rEE-uP-vi4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eYh-Cb-8K0"/>
                     </view>
                     <navigationItem key="navigationItem" id="JiV-bu-fJd">
