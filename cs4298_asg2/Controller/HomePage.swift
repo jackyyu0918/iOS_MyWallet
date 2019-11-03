@@ -40,6 +40,7 @@ class HomePage: UIViewController {
         let record:Record = Record(context: DbService.context)
         record.value = 0
         DbService.saveContext()
+        fetchRecored()
         
     }
     
@@ -47,8 +48,11 @@ class HomePage: UIViewController {
         let fetchRequest: NSFetchRequest<Record> = Record.fetchRequest()
         
         do {
-            let results = try DbService.context.fetch(fetchRequest)
-            print(results)
+            let results: [Record] = try DbService.context.fetch(fetchRequest)
+            print(results.count)
+            for result in results{
+                print(result.value)
+            }
             
         } catch  {
         }
