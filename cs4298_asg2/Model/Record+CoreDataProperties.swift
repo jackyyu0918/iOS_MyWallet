@@ -2,7 +2,7 @@
 //  Record+CoreDataProperties.swift
 //  cs4298_asg2
 //
-//  Created by CHAN Yat Chau on 31/10/2019.
+//  Created by CHAN Yat Chau on 4/11/2019.
 //  Copyright © 2019 YU Ka Kit. All rights reserved.
 //
 //
@@ -17,7 +17,11 @@ extension Record {
         return NSFetchRequest<Record>(entityName: "Record")
     }
 
-    @NSManaged public var id: Int64
-    @NSManaged public var data: String?
+    @NSManaged public var date: NSDate?
+    @NSManaged public var nature: String?
+    @NSManaged public var photo: NSData?
+    @NSManaged public var remark: String?
+    @NSManaged public var type: String?
+    @NSManaged public var value: Double
 
 }

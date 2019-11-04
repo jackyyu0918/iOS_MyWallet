@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A61097EE236ECC7C004ABCBB /* Record+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61097EC236ECC7C004ABCBB /* Record+CoreDataClass.swift */; };
-		A61097EF236ECC7C004ABCBB /* Record+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61097ED236ECC7C004ABCBB /* Record+CoreDataProperties.swift */; };
 		A61097F1236ECC8B004ABCBB /* DbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61097F0236ECC8B004ABCBB /* DbService.swift */; };
+		A6888EC9237030A300FA78C6 /* Record+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6888EC8237030A300FA78C6 /* Record+CoreDataProperties.swift */; };
 		A6B7B01A236EB0920002FDE3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B7B018236EB0920002FDE3 /* Home.storyboard */; };
 		A6B7B01C236EB23D0002FDE3 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7B01B236EB23D0002FDE3 /* HomePage.swift */; };
 		A758F6CF236FD1E3007F6C53 /* Analysis_VC_Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758F6CE236FD1E3007F6C53 /* Analysis_VC_Income.swift */; };
@@ -52,8 +52,8 @@
 
 /* Begin PBXFileReference section */
 		A61097EC236ECC7C004ABCBB /* Record+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A61097ED236ECC7C004ABCBB /* Record+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A61097F0236ECC8B004ABCBB /* DbService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbService.swift; sourceTree = "<group>"; };
+		A6888EC8237030A300FA78C6 /* Record+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Record+CoreDataProperties.swift"; path = "../Model/Record+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A6B7B019236EB0920002FDE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = cs4298_asg2/View/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		A6B7B01B236EB23D0002FDE3 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		A758F6CE236FD1E3007F6C53 /* Analysis_VC_Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis_VC_Income.swift; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 		FA9AE07223695A7C0098280C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A6888EC8237030A300FA78C6 /* Record+CoreDataProperties.swift */,
 				A61097EC236ECC7C004ABCBB /* Record+CoreDataClass.swift */,
-				A61097ED236ECC7C004ABCBB /* Record+CoreDataProperties.swift */,
 				A6B7B018236EB0920002FDE3 /* Home.storyboard */,
 				A7C975AE236D89C500CE04AC /* Analyze.storyboard */,
 				FACF775C236875E800740E3C /* LaunchScreen.storyboard */,
@@ -338,6 +338,7 @@
 				A61097F1236ECC8B004ABCBB /* DbService.swift in Sources */,
 				A7CDA96B236ADECD00A761D2 /* Analysis_VC.swift in Sources */,
 				FACF7753236875E600740E3C /* ContainerVC.swift in Sources */,
+				A6888EC9237030A300FA78C6 /* Record+CoreDataProperties.swift in Sources */,
 				A758F6CF236FD1E3007F6C53 /* Analysis_VC_Income.swift in Sources */,
 				FACF7751236875E600740E3C /* AppDelegate.swift in Sources */,
 				FA2504DC236C04AB00718148 /* AddRecordVC.swift in Sources */,

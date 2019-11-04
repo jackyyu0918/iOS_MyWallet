@@ -18,9 +18,26 @@ public class Record: NSManagedObject {
         case outcome = "Outcome"
     }
     
-    enum type: String{
-        case Food = "F"
-        //        case case
+    enum IncomeType: String{
+        case Salary = "Salary"
+        case Investment = "Investment"
+        case Rent = "Rent"
+        case Prize = "Prize"
+        case Coupon = "Coupon"
+        case Lottery = "Lottery"
+        case Refund = "Refund"
+    }
+    
+    enum OutcomeType: String{
+        case Food = "Food"
+        case Shopping = "Shopping"
+        case Traffic = "Traffic"
+        case Bill = "Bill"
+        case Entertainment = "Entertainment"
+        case Pet = "Pet"
+        case HealthCare = "Health Care"
+        case Other = "Other"
+
     }
     
     static func getCount() -> Int{
@@ -29,6 +46,7 @@ public class Record: NSManagedObject {
     }
     
     static func addRecord(date: NSDate?, nature: String?, photo: NSData?, remark: String?, type: String?, value : Double){
+        print("-------------------------")
         print("Before Add: ",Record.getCount())
         
         let record:Record = Record(context: DbService.context)
@@ -42,6 +60,7 @@ public class Record: NSManagedObject {
         DbService.saveContext()
         
         print("After Add: ",Record.getCount())
+        print("=========================")
     }
     
     static func fetchRecored() -> [Record]{
@@ -60,44 +79,14 @@ public class Record: NSManagedObject {
     
     static func deleteRecord(record: Record)
     {
+        print("-------------------------")
         print("Before delete: ", Record.getCount())
         
         DbService.context.delete(record)
         
         print("After delete: ", Record.getCount())
-        
+        print("=========================")
     }
-    
-    //    static func natureCount() -> AnyObject{
-    //
-    //        //        ----
-    //                let keypathExp = NSExpression(forKeyPath: "nature") // can be any column
-    //                let expression = NSExpression(forFunction: "count:", arguments: [keypathExp])
-    //
-    //                let countDesc = NSExpressionDescription()
-    //                countDesc.expression = expression
-    //                countDesc.name = "count"
-    //                countDesc.expressionResultType = .integer64AttributeType
-    //
-    //        //        ----
-    //                let request: NSFetchRequest<NSFetchRequestResult> =  Record.fetchRequest()
-    //                request.returnsObjectsAsFaults = false
-    //                request.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
-    //                request.propertiesToGroupBy = ["type"]
-    //
-    //                request.propertiesToFetch = ["type", countDesc]
-    //                request.resultType = .dictionaryResultType
-    //
-    //        var results: [AnyObject] = [];
-    //
-    //                do {
-    //                    results = try DbService.context.fetch(request)
-    //                    print(results)
-    //                } catch  {
-    //                }
-    //
-    //        return results as AnyObject
-    //    }
     
     static func natureCount() -> AnyObject{
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
@@ -113,10 +102,9 @@ public class Record: NSManagedObject {
         countDesc.expressionResultType = .integer64AttributeType
         //        -----------------
         
-//        request.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
-//        request.propertiesToFetch = ["type","nature", countDesc]
-        request.propertiesToFetch = [countDesc]
-//        request.propertiesToGroupBy = ["type","nature"]
+        request.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
+        request.propertiesToFetch = ["type","nature", countDesc]
+        request.propertiesToGroupBy = ["type","nature"]
         request.resultType = .dictionaryResultType
         
         return try! context.fetch(request) as AnyObject

@@ -60,10 +60,8 @@ class HomePage: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func addPress(_ sender: Any) {
-        Record.addRecord(date: nil, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
-        Record.addRecord(date: nil, nature: "Income", photo: nil, remark: "remark", type: "type", value: 1)
-
-
+        Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
+        Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "type", value: 1)
     }
     
     @IBAction func deletePress(_ sender: Any) {
