@@ -124,7 +124,7 @@ public class Record: NSManagedObject {
     
     func getDateString() -> String{
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd"
         let dateString = formatter.string(from: self.date! as Date)
         return dateString
     }

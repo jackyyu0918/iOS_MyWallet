@@ -28,7 +28,7 @@ class RecordDetailsController: UIViewController {
         remark.text = record!.getRemarkString()
 
         if (record?.photo != nil){
-            imageView.image = UIImage(data: record?.photo as! Data)
+            imageView.image = UIImage(data: record?.photo! as! Data)
         }
         
     }

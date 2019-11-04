@@ -24,10 +24,11 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let type:UILabel = stackView.subviews[1] as! UILabel
         let value:UILabel = stackView.subviews[2] as! UILabel
 
+        let currentRecord = Record.fetchRecored()[indexPath.row]
         
-        date.text? = String(indexPath.row)
-        type.text? = String(indexPath.row * 2)
-        value.text? = String(indexPath.row * 3)
+        date.text? = currentRecord.getDateString()
+        type.text? = currentRecord.getTypeString()
+        value.text? = currentRecord.getValueString()
 
         
         return cell
