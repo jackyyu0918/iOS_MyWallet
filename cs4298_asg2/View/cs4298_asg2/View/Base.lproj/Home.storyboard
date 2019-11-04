@@ -285,6 +285,7 @@
                     </view>
                     <connections>
                         <outlet property="date" destination="Kwd-yb-qxZ" id="4KK-Ii-YFq"/>
+                        <outlet property="imageView" destination="ON4-AR-llm" id="rKF-p0-Jd2"/>
                         <outlet property="nature" destination="r2B-us-EmO" id="0dc-Wc-mXK"/>
                         <outlet property="remark" destination="9sR-vq-avO" id="MdB-f0-fog"/>
                         <outlet property="type" destination="OPS-yK-WRg" id="KdN-8v-t9x"/>
