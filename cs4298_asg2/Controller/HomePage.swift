@@ -9,7 +9,30 @@
 import UIKit
 import CoreData
 
-class HomePage: UIViewController {
+class HomePage: UIViewController, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "prototypeCell") as! UITableViewCell
+        let contentView:UIView = cell.subviews[0] as UIView
+        let stackView:UIStackView = contentView.subviews[0] as! UIStackView
+        
+        
+        let label0:UILabel = stackView.subviews[0] as! UILabel
+        let label1:UILabel = stackView.subviews[1] as! UILabel
+        
+        
+        label0.text? = String(indexPath.row)
+        label1.text? = String(indexPath.row * 2)
+        
+        
+        return cell
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(showAnalyze), name: NSNotification.Name("ShowAnalyze"), object: nil)
@@ -34,5 +57,23 @@ class HomePage: UIViewController {
     @IBAction func onMoreTapped(){
         print("Toggle side menu")
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
+    }
+    
+    @IBAction func addPress(_ sender: Any) {
+        Record.addRecord(date: nil, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
+        Record.addRecord(date: nil, nature: "Income", photo: nil, remark: "remark", type: "type", value: 1)
+
+
+    }
+    
+    @IBAction func deletePress(_ sender: Any) {
+        let records = Record.fetchRecored()
+        for record in records{  
+            Record.deleteRecord(record: record)
+        }
+    }
+    
+    @IBAction func testPress(_ sender: Any) {
+        print(Record.natureCount())
     }
 }
