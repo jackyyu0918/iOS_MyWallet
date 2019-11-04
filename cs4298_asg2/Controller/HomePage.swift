@@ -20,14 +20,15 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let contentView:UIView = cell.subviews[0] as UIView
         let stackView:UIStackView = contentView.subviews[0] as! UIStackView
         
+        let date:UILabel = stackView.subviews[0] as! UILabel
+        let type:UILabel = stackView.subviews[1] as! UILabel
+        let value:UILabel = stackView.subviews[2] as! UILabel
+
         
-        let label0:UILabel = stackView.subviews[0] as! UILabel
-        let label1:UILabel = stackView.subviews[1] as! UILabel
-        
-        
-        label0.text? = String(indexPath.row)
-        label1.text? = String(indexPath.row * 2)
-        
+        date.text? = String(indexPath.row)
+        type.text? = String(indexPath.row * 2)
+        value.text? = String(indexPath.row * 3)
+
         
         return cell
     }

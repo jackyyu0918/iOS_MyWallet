@@ -164,37 +164,7 @@ class AddRecordVC: UIViewController {
     //from github
     //https://github.com/AnkurVekariya/CoreDataSwiftDemo/blob/master/CoreDataCRUD/ViewController.swift
     func retrieveData() {
-        
-        //        //As we know that container is set up in the AppDelegates so we need to refer that container.
-        //        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        //
-        //        //We need to create a context from this container
-        //        let managedContext = appDelegate.persistentContainer.viewContext
-        //
-        //        //Prepare the request of type NSFetchRequest  for the entity
-        //        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
-        //
-        //        //        fetchRequest.fetchLimit = 1
-        //        //        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur")
-        //        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
-        //
-        //        do {
-        //            let result = try managedContext.fetch(fetchRequest)
-        //            for data in result as! [NSManagedObject] {
-        //                print(data.value(forKey: "nature") as! String)
-        //                print(data.value(forKey: "type") as! String)
-        //                print(data.value(forKey: "date") as! Date)
-        //                print(data.value(forKey: "value") as! Double)
-        //                print(data.value(forKey: "remark") as? String)
-        //                //get Binaryform of an image
-        //                print(data.value(forKey: "photo") as? NSData)
-        //                print("\n")
-        //            }
-        //
-        //        } catch {
-        //
-        //            print("Failed")
-        //        }
+
         var i = 0
         let records = Record.fetchRecored()
         for record in records{

@@ -110,4 +110,27 @@ public class Record: NSManagedObject {
         return try! context.fetch(request) as AnyObject
     }
     
+    func getNatureString() -> String{
+        return String(self.nature!)
+    }
+    
+    func getTypeString() -> String{
+        return String(self.type!)
+    }
+    
+    func getValueString() -> String{
+        return String(self.value)
+    }
+    
+    func getDateString() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = formatter.string(from: self.date! as Date)
+        return dateString
+    }
+    
+    func getRemarkString() -> String{
+        return String(self.remark!)
+    }
+    
 }
