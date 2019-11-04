@@ -87,4 +87,6 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    @IBAction func addRecordPress(_ sender: Any) {
+    }
 }
