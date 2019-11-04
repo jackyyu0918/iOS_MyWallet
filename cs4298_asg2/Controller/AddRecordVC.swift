@@ -151,42 +151,52 @@ class AddRecordVC: UIViewController {
             
            
         } else {
-            let controller = UIAlertController(title: "Success!", message: "New record has been added.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            controller.addAction(okAction)
-            present(controller, animated: true, completion: nil)
+//            let controller = UIAlertController(title: "Success!", message: "New record has been added.", preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            controller.addAction(okAction)
+//            present(controller, animated: true, completion: nil)
+//
+//            //real business
+//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//            let managedContext = appDelegate.persistentContainer.viewContext
+//            let recordEntity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)
+//
+//            let record = NSManagedObject(entity: recordEntity!, insertInto: managedContext)
+//            /*
+//             record.setValue("Food", forKeyPath: "type")
+//             record.setValue("Food", forKeyPath: "date")
+//             record.setValue("Food", forKeyPath: "remark")
+//             record.setValue("Food", forKeyPath: "photo")
+//             record.setValue("Food", forKeyPath: "value")
+//             */
+//            record.setValue(NatureOfMoney, forKeyPath: "nature")
+//            record.setValue(typeName, forKeyPath: "type")
+//            record.setValue(datePicker.date, forKeyPath: "date")
+//            record.setValue(remarkTextField.text, forKeyPath: "remark")
+//            record.setValue(imageView.image?.pngData(), forKeyPath: "photo")
+//            record.setValue((Double)(valueTextField.text!), forKeyPath: "value")
             
-            //real business
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-            let managedContext = appDelegate.persistentContainer.viewContext
-            let recordEntity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)
+            //            NatureOfMoney,
+            //            typeName
+            //            datePicker.date
+            //            remarkTextField.text
+            //            imageView.image?.pngData()
+            //            (Double)(valueTextField.text!)
             
-            let record = NSManagedObject(entity: recordEntity!, insertInto: managedContext)
-            /*
-             record.setValue("Food", forKeyPath: "type")
-             record.setValue("Food", forKeyPath: "date")
-             record.setValue("Food", forKeyPath: "remark")
-             record.setValue("Food", forKeyPath: "photo")
-             record.setValue("Food", forKeyPath: "value")
-             */
-            record.setValue(NatureOfMoney, forKeyPath: "nature")
-            record.setValue(typeName, forKeyPath: "type")
-            record.setValue(datePicker.date, forKeyPath: "date")
-            record.setValue(remarkTextField.text, forKeyPath: "remark")
-            record.setValue(imageView.image?.pngData(), forKeyPath: "photo")
-            record.setValue((Double)(valueTextField.text!), forKeyPath: "value")
+//
+//            //that's the way you tran from NSDATA to image
+//            /*
+//             let binaryImage = imageView.image?.pngData()
+//             testImageView.image = UIImage(data: <#T##Data#>)
+//             */
+//
+//            do {
+//                try managedContext.save()
+//            } catch let error as NSError {
+//                print("Could not save. \(error), \(error.userInfo)")
+//            }
             
-            //that's the way you tran from NSDATA to image
-            /*
-             let binaryImage = imageView.image?.pngData()
-             testImageView.image = UIImage(data: <#T##Data#>)
-             */
-            
-            do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
+            Record.addRecord(date: datePicker!.date as NSDate, nature: NatureOfMoney, photo: imageView.image?.pngData() as NSData?, remark: remarkTextField.text, type: typeName, value: (Double)(valueTextField.text!) as! Double)
         }
     }
     
@@ -194,123 +204,58 @@ class AddRecordVC: UIViewController {
     //https://github.com/AnkurVekariya/CoreDataSwiftDemo/blob/master/CoreDataCRUD/ViewController.swift
     func retrieveData() {
         
-        //As we know that container is set up in the AppDelegates so we need to refer that container.
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        //We need to create a context from this container
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        //Prepare the request of type NSFetchRequest  for the entity
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
-        
-        //        fetchRequest.fetchLimit = 1
-        //        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur")
-        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
+//        //As we know that container is set up in the AppDelegates so we need to refer that container.
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//
+//        //We need to create a context from this container
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//
+//        //Prepare the request of type NSFetchRequest  for the entity
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
+//
+//        //        fetchRequest.fetchLimit = 1
+//        //        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur")
+//        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
         //
-        do {
-            let result = try managedContext.fetch(fetchRequest)
-            for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "nature") as! String)
-                print(data.value(forKey: "type") as! String)
-                print(data.value(forKey: "date") as! Date)
-                print(data.value(forKey: "value") as! Double)
-                print(data.value(forKey: "remark") as? String)
-                //get Binaryform of an image
-                print(data.value(forKey: "photo") as? NSData)
-                print("\n")
-            }
-            
-        } catch {
-            
-            print("Failed")
+//        do {
+//            let result = try managedContext.fetch(fetchRequest)
+//            for data in result as! [NSManagedObject] {
+//                print(data.value(forKey: "nature") as! String)
+//                print(data.value(forKey: "type") as! String)
+//                print(data.value(forKey: "date") as! Date)
+//                print(data.value(forKey: "value") as! Double)
+//                print(data.value(forKey: "remark") as? String)
+//                //get Binaryform of an image
+//                print(data.value(forKey: "photo") as? NSData)
+//                print("\n")
+//            }
+//
+//        } catch {
+//
+//            print("Failed")
+//        }
+        var i = 0
+        let records = Record.fetchRecored()
+        for record in records{
+            print("Record id: \(i+1)")
+            print(record.date)
+            print(record.nature)
+            print(record.photo)
+            print(record.remark)
+            print(record.type)
+            print(record.value)
+            print("-----------------")
+            i+=1
         }
     }
     
-    /*func updateData(){
-        
-        //As we know that container is set up in the AppDelegates so we need to refer that container.
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        //We need to create a context from this container
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Record")
-        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur1")
-        do
-        {
-            let test = try managedContext.fetch(fetchRequest)
-            
-            let objectUpdate = test[0] as! NSManagedObject
-            objectUpdate.setValue("newName", forKey: "username")
-            objectUpdate.setValue("newmail", forKey: "email")
-            objectUpdate.setValue("newpassword", forKey: "password")
-            do{
-                try managedContext.save()
-            }
-            catch
-            {
-                print(error)
-            }
-        }
-        catch
-        {
-            print(error)
-        }
-    }*/
-    
-    /*func deleteData(){
-        
-        //As we know that container is set up in the AppDelegates so we need to refer that container.
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        //We need to create a context from this container
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
-        fetchRequest.predicate = NSPredicate(format: "username = %@", "Ankur3")
-        
-        do
-        {
-            let test = try managedContext.fetch(fetchRequest)
-            
-            let objectToDelete = test[0] as! NSManagedObject
-            managedContext.delete(objectToDelete)
-            
-            do{
-                try managedContext.save()
-            }
-            catch
-            {
-                print(error)
-            }
-            
-        }
-        catch
-        {
-            print(error)
-        }
-    }*/
-    
     func deleteAllData(entity: String)
     {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
-        
-        do
-        {
-            let results = try managedContext.fetch(fetchRequest)
-            
-            for managedObject in results
-            {
-                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
-                managedContext.delete(managedObjectData)
-            }
-        } catch let error as NSError {
-            print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
+        let records = Record.fetchRecored()
+        for record in records{
+            Record.deleteRecord(record: record)
         }
+        
     }
     
     
