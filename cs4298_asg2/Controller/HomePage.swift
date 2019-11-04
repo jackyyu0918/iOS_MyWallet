@@ -1,15 +1,15 @@
 //
-//  MainVC.swift
+//  HomePage.swift
 //  cs4298_asg2
 //
-//  Created by YU Ka Kit on 30/10/2019.
+//  Created by CHAN Yat Chau on 3/11/2019.
 //  Copyright © 2019 YU Ka Kit. All rights reserved.
 //
 
 import UIKit
+import CoreData
 
-class MainVC: UIViewController {
-
+class HomePage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(showAnalyze), name: NSNotification.Name("ShowAnalyze"), object: nil)
@@ -29,21 +29,23 @@ class MainVC: UIViewController {
     @objc func showSetting(){
         performSegue(withIdentifier: "ShowSetting", sender: nil)
     }
-
+    
     
     @IBAction func onMoreTapped(){
         print("Toggle side menu")
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
+    
+    @IBAction func pressButton(_ sender: Any) {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        Record.addRecord(value: 1.3)
+        var results =  Record.fetchRecored()
+        
+        for result in results{
+            print(result.value)
+        }
     }
-    */
+    
 
+    
 }
