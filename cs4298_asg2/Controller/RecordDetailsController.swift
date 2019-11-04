@@ -20,19 +20,15 @@ class RecordDetailsController: UIViewController {
     
     override func viewDidLoad() {
         print(record ?? "Nothing Reveived!")
-        
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let dateString = formatter.string(from: record!.date! as Date)
-        
-        nature.text = String(record!.nature!)
-        type.text = String(record!.type!)
-        value.text = String(record!.value)
-        date.text = dateString
-        remark.text = String(record!.remark ?? "")
+
+        nature.text = record!.getNatureString()
+        type.text = record!.getTypeString()
+        value.text = record!.getValueString()
+        date.text = record!.getDateString()
+        remark.text = record!.getRemarkString()
+
         if (record?.photo != nil){
-            imageView.image = UIImage(data: record?.photo as! Data)
+            imageView.image = UIImage(data: record?.photo! as! Data)
         }
         
     }
