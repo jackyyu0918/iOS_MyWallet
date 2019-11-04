@@ -145,9 +145,8 @@
 		FA9AE07323695A7D0098280C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FACF7750236875E600740E3C /* AppDelegate.swift */,
-				FA9AE07623695ACD0098280C /* InCategory.swift */,
-				FA9AE07823695AEB0098280C /* OutCategory.swift */,
+				A6E9F18F236AD5CF00F396A6 /* Record+CoreDataClass.swift */,
+				A6E9F190236AD5CF00F396A6 /* Record+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +174,9 @@
 		FACF774F236875E600740E3C /* cs4298_asg2 */ = {
 			isa = PBXGroup;
 			children = (
+				FACF7750236875E600740E3C /* AppDelegate.swift */,
+				FA9AE07623695ACD0098280C /* InCategory.swift */,
+				FA9AE07823695AEB0098280C /* OutCategory.swift */,
 				FA9AE07323695A7D0098280C /* Model */,
 				FA9AE07223695A7C0098280C /* View */,
 				FA9AE07123695A780098280C /* Controller */,
@@ -347,6 +349,7 @@
 				A77F0B94236D8046000DAC3F /* PieChart.swift in Sources */,
 				A6B7B01C236EB23D0002FDE3 /* HomePage.swift in Sources */,
 				FA01D68E2369652700091E3F /* SideMenuVC.swift in Sources */,
+				A6E9F191236AD5CF00F396A6 /* Record+CoreDataClass.swift in Sources */,
 				FA9AE07723695ACD0098280C /* InCategory.swift in Sources */,
 				FA9AE07923695AEB0098280C /* OutCategory.swift in Sources */,
 				A61097EF236ECC7C004ABCBB /* Record+CoreDataProperties.swift in Sources */,

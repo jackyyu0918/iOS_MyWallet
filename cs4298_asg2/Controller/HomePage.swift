@@ -35,17 +35,4 @@ class HomePage: UIViewController {
         print("Toggle side menu")
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
-    
-    @IBAction func pressButton(_ sender: Any) {
-
-        Record.addRecord(value: 1.3)
-        var results =  Record.fetchRecored()
-        
-        for result in results{
-            print(result.value)
-        }
-    }
-    
-
-    
 }

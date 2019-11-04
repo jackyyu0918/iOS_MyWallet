@@ -47,7 +47,9 @@
                                 <rect key="frame" x="318" y="782" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="pressButton:" destination="wuM-hr-pw5" eventType="touchUpInside" id="xRC-Zp-pZR"/>
+                                    <segue destination="VJq-U1-Rt7" kind="popoverPresentation" popoverAnchorView="fiu-Jq-fO2" id="BVE-nH-bZ0">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -88,7 +90,7 @@
                 <viewControllerPlaceholder storyboardName="AddRecordPage" id="VJq-U1-Rt7" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vx9-YR-vaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3010" y="1230"/>
+            <point key="canvasLocation" x="2327" y="1055"/>
         </scene>
         <!--Analyze-->
         <scene sceneID="HVp-V0-rtj">
