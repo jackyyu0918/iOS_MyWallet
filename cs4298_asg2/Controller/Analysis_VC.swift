@@ -82,7 +82,7 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
             else if(result.type == "Health Care"){
                 totalHealthCare += (Float)(result.value)
             }
-            else if(result.type == "Other"){
+            else if(result.type == "Other" && result.nature == "Outcome"){
                 totalOthers += (Float)(result.value)
             }
             

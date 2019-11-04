@@ -77,7 +77,7 @@ class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSo
             else if(result.type == "Refund"){
                 totalRefund += (Float)(result.value)
             }
-            else if(result.type == "Other"){
+            else if(result.type == "Other" && result.nature == "Income"){
                 self.totalOthers += (Float)(result.value)
             }
             
