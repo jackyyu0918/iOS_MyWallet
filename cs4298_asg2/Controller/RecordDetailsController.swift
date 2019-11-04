@@ -16,6 +16,7 @@ class RecordDetailsController: UIViewController {
     @IBOutlet weak var value: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var remark: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         print(record ?? "Nothing Reveived!")
@@ -25,5 +26,10 @@ class RecordDetailsController: UIViewController {
         value.text = record!.getValueString()
         date.text = record!.getDateString()
         remark.text = record!.getRemarkString()
+
+        if (record?.photo != nil){
+            imageView.image = UIImage(data: record?.photo as! Data)
+        }
+        
     }
 }

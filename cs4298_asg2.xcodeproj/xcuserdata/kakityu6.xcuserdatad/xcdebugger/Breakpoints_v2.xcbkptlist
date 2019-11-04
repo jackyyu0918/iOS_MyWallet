@@ -19,5 +19,53 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "cs4298_asg2/View/Record+CoreDataClass.swift"
+            timestampString = "594566394.073679"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "OutcomeType"
+            landmarkType = "13">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "cs4298_asg2.Record.OutcomeType.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;cs4298_asg2.Record.OutcomeType&gt;"
+                  moduleName = "cs4298_asg2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kakityu6/Desktop/cs4298_asg2/cs4298_asg2/View/Record+CoreDataClass.swift"
+                  timestampString = "594567023.425252"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "258">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "cs4298_asg2.Record.OutcomeType.rawValue.getter : Swift.String"
+                  moduleName = "cs4298_asg2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kakityu6/Desktop/cs4298_asg2/cs4298_asg2/View/Record+CoreDataClass.swift"
+                  timestampString = "594567023.426789"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "211">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

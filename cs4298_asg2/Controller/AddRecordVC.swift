@@ -154,6 +154,7 @@ class AddRecordVC: UIViewController {
             Record.addRecord(date: datePicker!.date as NSDate, nature: NatureOfMoney, photo: imageView.image?.pngData() as NSData?, remark: remarkTextField.text, type: typeName, value: (Double)(valueTextField.text!) as! Double)
             
             let alert = UIAlertController(title: "Success!", message: "You just added an new record.", preferredStyle: .alert)
+            //trigger action
             let okAction = UIAlertAction(title: "OK", style: .default,
                  handler: {(alert: UIAlertAction!) in self.navigationController?.popToRootViewController(animated: true)})
             alert.addAction(okAction)
