@@ -57,8 +57,41 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         self.uiColorArray.append(UIColor.orange)
         self.uiColorArray.append(UIColor.brown)
         
+        for result in results{
+            if(result.type == "Food"){
+                print("Food Success matching")
+                totalFood += (Float)(result.value)
+                
+            }
+            else if(result.type == "Shopping"){
+                print("Shopping Success matching")
+                totalShopping += (Float)(result.value)
+            }
+            else if(result.type == "Traffic"){
+                totalTraffic += (Float)(result.value)
+            }
+            else if(result.type == "Bill"){
+                totalBill += (Float)(result.value)
+            }
+            else if(result.type == "Entertainment"){
+                totalEntertainment += (Float)(result.value)
+            }
+            else if(result.type == "Pet"){
+                totalPet += (Float)(result.value)
+            }
+            else if(result.type == "Health Care"){
+                totalHealthCare += (Float)(result.value)
+            }
+            else if(result.type == "Other" && result.nature == "Outcome"){
+                totalOthers += (Float)(result.value)
+            }
+            
+            
+        }
+        
+        
         //Calculation for the percentage
-     let AmountOfCategories:[Float] = [self.totalFood,30,200,200,60,500,45,10]
+     let AmountOfCategories:[Float] = [self.totalFood,self.totalShopping,self.totalTraffic,totalBill,totalEntertainment,totalPet,totalHealthCare,totalOthers]
         let sum:Float = AmountOfCategories.reduce(0, +)
        
         var count = 0
@@ -70,6 +103,9 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
             count+=1
             
         }
+        
+        
+        
         
         // Create pie chart based on above percentage
         let pieChartView = PieChartView()
@@ -95,6 +131,9 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         self.applyRoundCorner(Pet_Button)
         self.applyRoundCorner(HealthCare_Button)
         self.applyRoundCorner(Other_Button)
+        
+        
+        
  
         super.viewDidLoad()
         }
@@ -111,34 +150,7 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:Analysis_TableCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Analysis_TableCell
         
-        for result in results{
-            if(result.type == "Food"){
-                totalFood += (Float)(result.value)
-            }
-            else if(result.type == "Shopping"){
-                totalShopping += (Float)(result.value)
-            }
-            else if(result.type == "Traffic"){
-                totalTraffic += (Float)(result.value)
-            }
-            else if(result.type == "Bill"){
-                totalBill += (Float)(result.value)
-            }
-            else if(result.type == "Entertainment"){
-                totalEntertainment += (Float)(result.value)
-            }
-            else if(result.type == "Pet"){
-                totalPet += (Float)(result.value)
-            }
-            else if(result.type == "Health Care"){
-                totalHealthCare += (Float)(result.value)
-            }
-            else if(result.type == "Other"){
-                totalOthers += (Float)(result.value)
-            }
-            
-            
-        }
+  
         
         cell.textLabel?.text = categories[indexPath.row]
         cell.imageView?.image = CategoryPhoto[indexPath.row]
