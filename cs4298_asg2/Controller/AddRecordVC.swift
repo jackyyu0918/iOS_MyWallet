@@ -151,52 +151,10 @@ class AddRecordVC: UIViewController {
             
            
         } else {
-//            let controller = UIAlertController(title: "Success!", message: "New record has been added.", preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//            controller.addAction(okAction)
-//            present(controller, animated: true, completion: nil)
-//
-//            //real business
-//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//            let managedContext = appDelegate.persistentContainer.viewContext
-//            let recordEntity = NSEntityDescription.entity(forEntityName: "Record", in: managedContext)
-//
-//            let record = NSManagedObject(entity: recordEntity!, insertInto: managedContext)
-//            /*
-//             record.setValue("Food", forKeyPath: "type")
-//             record.setValue("Food", forKeyPath: "date")
-//             record.setValue("Food", forKeyPath: "remark")
-//             record.setValue("Food", forKeyPath: "photo")
-//             record.setValue("Food", forKeyPath: "value")
-//             */
-//            record.setValue(NatureOfMoney, forKeyPath: "nature")
-//            record.setValue(typeName, forKeyPath: "type")
-//            record.setValue(datePicker.date, forKeyPath: "date")
-//            record.setValue(remarkTextField.text, forKeyPath: "remark")
-//            record.setValue(imageView.image?.pngData(), forKeyPath: "photo")
-//            record.setValue((Double)(valueTextField.text!), forKeyPath: "value")
-            
-            //            NatureOfMoney,
-            //            typeName
-            //            datePicker.date
-            //            remarkTextField.text
-            //            imageView.image?.pngData()
-            //            (Double)(valueTextField.text!)
-            
-//
-//            //that's the way you tran from NSDATA to image
-//            /*
-//             let binaryImage = imageView.image?.pngData()
-//             testImageView.image = UIImage(data: <#T##Data#>)
-//             */
-//
-//            do {
-//                try managedContext.save()
-//            } catch let error as NSError {
-//                print("Could not save. \(error), \(error.userInfo)")
-//            }
-            
             Record.addRecord(date: datePicker!.date as NSDate, nature: NatureOfMoney, photo: imageView.image?.pngData() as NSData?, remark: remarkTextField.text, type: typeName, value: (Double)(valueTextField.text!) as! Double)
+            
+            performSegue(withIdentifier: "HomePageSB", sender: self)
+            
         }
     }
     
