@@ -353,14 +353,13 @@ class AddRecordVC: UIViewController {
             button7.setImage(UIImage(named: "HealthCare"), for: .normal)
             button8.setImage(UIImage(named: "Others"), for: .normal)
         } else if NatureOfMoney == "Income"{
-            button1.setImage(nil, for: .normal)
-            button2.setImage(UIImage(named: "Salary"), for: .normal)
-            button3.setImage(UIImage(named: "Investment"), for: .normal)
-            button4.setImage(UIImage(named: "Rent"), for: .normal)
-            button5.setImage(UIImage(named: "Prize"), for: .normal)
-            button6.setImage(UIImage(named: "Coupon"), for: .normal)
-            button7.setImage(UIImage(named: "Lottery"), for: .normal)
-            button8.setImage(UIImage(named: "Refund"), for: .normal)
+            button1.setImage(UIImage(named: "Salary"), for: .normal)
+            button2.setImage(UIImage(named: "Investment"), for: .normal)
+            button3.setImage(UIImage(named: "Rent"), for: .normal)
+            button4.setImage(UIImage(named: "Prize"), for: .normal)
+            button5.setImage(UIImage(named: "Coupon"), for: .normal)
+            button6.setImage(UIImage(named: "Lottery"), for: .normal)
+            button7.setImage(UIImage(named: "Refund"), for: .normal)
             button8.setImage(UIImage(named: "Others"), for: .normal)
         }
     }

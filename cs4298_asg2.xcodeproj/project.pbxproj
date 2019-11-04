@@ -23,8 +23,6 @@
 		FA2504DA236C048C00718148 /* AddRecordPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2504D8236C048C00718148 /* AddRecordPage.storyboard */; };
 		FA2504DC236C04AB00718148 /* AddRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2504DB236C04AB00718148 /* AddRecordVC.swift */; };
 		FA2D0E80236C50FB0076A2EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D0E7F236C50FB0076A2EF /* ViewController.swift */; };
-		FA9AE07723695ACD0098280C /* InCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AE07623695ACD0098280C /* InCategory.swift */; };
-		FA9AE07923695AEB0098280C /* OutCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AE07823695AEB0098280C /* OutCategory.swift */; };
 		FACF7751236875E600740E3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACF7750236875E600740E3C /* AppDelegate.swift */; };
 		FACF7753236875E600740E3C /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACF7752236875E600740E3C /* ContainerVC.swift */; };
 		FACF7756236875E600740E3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACF7754236875E600740E3C /* Main.storyboard */; };
@@ -69,8 +67,6 @@
 		FA2504D9236C048C00718148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = cs4298_asg2/View/Base.lproj/AddRecordPage.storyboard; sourceTree = "<group>"; };
 		FA2504DB236C04AB00718148 /* AddRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordVC.swift; sourceTree = "<group>"; };
 		FA2D0E7F236C50FB0076A2EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA9AE07623695ACD0098280C /* InCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCategory.swift; sourceTree = "<group>"; };
-		FA9AE07823695AEB0098280C /* OutCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutCategory.swift; sourceTree = "<group>"; };
 		FACF774D236875E600740E3C /* cs4298_asg2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cs4298_asg2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACF7750236875E600740E3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FACF7752236875E600740E3C /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
@@ -176,8 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				FACF7750236875E600740E3C /* AppDelegate.swift */,
-				FA9AE07623695ACD0098280C /* InCategory.swift */,
-				FA9AE07823695AEB0098280C /* OutCategory.swift */,
 				FA9AE07323695A7D0098280C /* Model */,
 				FA9AE07223695A7C0098280C /* View */,
 				FA9AE07123695A780098280C /* Controller */,
@@ -350,8 +344,6 @@
 				A77F0B94236D8046000DAC3F /* PieChart.swift in Sources */,
 				A6B7B01C236EB23D0002FDE3 /* HomePage.swift in Sources */,
 				FA01D68E2369652700091E3F /* SideMenuVC.swift in Sources */,
-				FA9AE07723695ACD0098280C /* InCategory.swift in Sources */,
-				FA9AE07923695AEB0098280C /* OutCategory.swift in Sources */,
 				A61097EF236ECC7C004ABCBB /* Record+CoreDataProperties.swift in Sources */,
 				A61097EE236ECC7C004ABCBB /* Record+CoreDataClass.swift in Sources */,
 				FACF7759236875E600740E3C /* cs4298_asg2.xcdatamodeld in Sources */,
