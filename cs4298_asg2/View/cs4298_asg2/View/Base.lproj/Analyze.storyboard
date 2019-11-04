@@ -173,6 +173,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YPV-sR-w7q"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Bill_Button" destination="MQH-6N-Daq" id="tmS-aG-oli"/>
                         <outlet property="Entertainment_Button" destination="Xua-qw-7T3" id="KI5-4e-1Yr"/>
