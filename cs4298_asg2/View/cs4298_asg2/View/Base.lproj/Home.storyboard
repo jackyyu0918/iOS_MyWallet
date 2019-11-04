@@ -47,9 +47,7 @@
                                 <rect key="frame" x="318" y="782" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="VJq-U1-Rt7" kind="popoverPresentation" popoverAnchorView="fiu-Jq-fO2" id="BVE-nH-bZ0">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="VJq-U1-Rt7" kind="show" id="4IV-95-5jx"/>
                                 </connections>
                             </button>
                         </subviews>
