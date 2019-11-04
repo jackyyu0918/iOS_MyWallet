@@ -169,6 +169,16 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYL-gs-0tL">
+                                <rect key="frame" x="80" y="61" width="29" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Back_Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syd-l1-QH5">
+                                <rect key="frame" x="318" y="61" width="29" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Next_Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YPV-sR-w7q"/>
@@ -192,4 +202,8 @@
             <point key="canvasLocation" x="331.8840579710145" y="1725.6696428571429"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Back_Button" width="13" height="21"/>
+        <image name="Next_Button" width="13" height="21"/>
+    </resources>
 </document>
