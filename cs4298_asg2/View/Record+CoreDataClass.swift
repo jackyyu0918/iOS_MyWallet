@@ -114,8 +114,9 @@ public class Record: NSManagedObject {
         //        -----------------
         
 //        request.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
-        request.propertiesToFetch = ["type",countDesc]
-        request.propertiesToGroupBy = ["type","nature"]
+//        request.propertiesToFetch = ["type","nature", countDesc]
+        request.propertiesToFetch = [countDesc]
+//        request.propertiesToGroupBy = ["type","nature"]
         request.resultType = .dictionaryResultType
         
         return try! context.fetch(request) as AnyObject
