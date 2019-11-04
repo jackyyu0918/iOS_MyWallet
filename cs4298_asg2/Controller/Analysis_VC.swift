@@ -13,6 +13,15 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var Stat_TableView: UITableView!
     
+    @IBOutlet weak var Food_button: UIButton!
+    @IBOutlet weak var Shopping_Button: UIButton!
+    @IBOutlet weak var Traffic_Button: UIButton!
+    @IBOutlet weak var Bill_Button: UIButton!
+    @IBOutlet weak var Entertainment_Button: UIButton!
+    @IBOutlet weak var Pet_Button: UIButton!
+    @IBOutlet weak var HealthCare_Button: UIButton!
+    @IBOutlet weak var Other_Button: UIButton!
+    
     var  totalFood:Float = 0
     var  totalShopping:Float = 0
     var  totalTraffic:Float = 0
@@ -43,7 +52,7 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         self.uiColorArray.append(UIColor.green)
         self.uiColorArray.append(UIColor.yellow)
         self.uiColorArray.append(UIColor.purple)
-        self.uiColorArray.append(UIColor.black)
+        //self.uiColorArray.append(UIColor.purple)
         self.uiColorArray.append(UIColor.black)
         self.uiColorArray.append(UIColor.orange)
         self.uiColorArray.append(UIColor.brown)
@@ -64,7 +73,7 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         
         // Create pie chart based on above percentage
         let pieChartView = PieChartView()
-        pieChartView.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: 200)
+        pieChartView.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: 250)
         pieChartView.segments = [
             Segment(color: .red, value: CGFloat(proportion[0])),
             Segment(color: .blue, value: CGFloat(proportion[1])),
@@ -76,7 +85,16 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
             Segment(color: .brown, value:CGFloat(proportion[7]))
         ]
         view.addSubview(pieChartView)
-
+        
+        //round button for showing what color equal which cate
+        self.applyRoundCorner(Food_button)
+        self.applyRoundCorner(Shopping_Button)
+        self.applyRoundCorner(Traffic_Button)
+        self.applyRoundCorner(Bill_Button)
+        self.applyRoundCorner(Entertainment_Button)
+        self.applyRoundCorner(Pet_Button)
+        self.applyRoundCorner(HealthCare_Button)
+        self.applyRoundCorner(Other_Button)
  
         super.viewDidLoad()
         }
@@ -139,6 +157,11 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
        cell.Percentage_Label.text = "\(showValue) %"
         
         return cell
+    }
+    
+    func applyRoundCorner(_ object:AnyObject)   {
+        object.layer?.cornerRadius = object.frame.size.width / 2
+        object.layer.masksToBounds = true
     }
     
     
