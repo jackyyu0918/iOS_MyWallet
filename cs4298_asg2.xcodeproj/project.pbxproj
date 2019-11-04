@@ -345,6 +345,10 @@
 				A77F0B94236D8046000DAC3F /* PieChart.swift in Sources */,
 				A6B7B01C236EB23D0002FDE3 /* HomePage.swift in Sources */,
 				FA01D68E2369652700091E3F /* SideMenuVC.swift in Sources */,
+<<<<<<< HEAD
+=======
+				A61097EF236ECC7C004ABCBB /* Record+CoreDataProperties.swift in Sources */,
+>>>>>>> master
 				A61097EE236ECC7C004ABCBB /* Record+CoreDataClass.swift in Sources */,
 				FACF7759236875E600740E3C /* cs4298_asg2.xcdatamodeld in Sources */,
 				A758F6D1236FEB2F007F6C53 /* Analysis_TableCell_Income.swift in Sources */,
