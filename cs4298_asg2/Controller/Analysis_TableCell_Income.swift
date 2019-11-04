@@ -12,5 +12,7 @@ import UIKit
 class Analysis_TableCell_Income : UITableViewCell{
 
     
+    @IBOutlet weak var Percentage_Label: UILabel!
+    @IBOutlet weak var Percentage_Bar: UIProgressView!
     
 }

@@ -12,13 +12,23 @@ import UIKit
 class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
   
-    var  totalFood:Float = 0
-    var  totalShopping:Float = 0
-    var  totalTraffic:Float = 0
-    var  totalBill:Float = 0
-    var  totalEntertainment:Float = 0
-    var  totalPet:Float = 0
-    var  totalHealthCare:Float = 0
+    @IBOutlet weak var Salary_Button: UIButton!
+    @IBOutlet weak var Investment_Button: UIButton!
+    @IBOutlet weak var Rent_Button: UIButton!
+    @IBOutlet weak var Prize_Button: UIButton!
+    @IBOutlet weak var Coupon_Button: UIButton!
+    @IBOutlet weak var Lottery_Button: UIButton!
+    @IBOutlet weak var Refund_Button: UIButton!
+    @IBOutlet weak var Others_Button: UIButton!
+    
+    
+    var  totalSalary:Float = 0
+    var  totalInvestment:Float = 0
+    var  totalRent:Float = 0
+    var  totalPrize:Float = 0
+    var  totalCoupon:Float = 0
+    var  totalLottery:Float = 0
+    var  totalRefund:Float = 0
     var  totalOthers:Float = 0
     
     var results =  Record.fetchRecored()
@@ -43,32 +53,32 @@ class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.uiColorArray.append(UIColor.brown)
         
         for result in results{
-            if(result.type == "Food"){
-                print("Food Success matching")
-                totalFood += (Float)(result.value)
+            if(result.type == "Salary"){
+                print("Salary Success matching")
+                totalSalary += (Float)(result.value)
                 
             }
-            else if(result.type == "Shopping"){
+            else if(result.type == "Investment"){
                 print("Shopping Success matching")
-                totalShopping += (Float)(result.value)
+                totalInvestment += (Float)(result.value)
             }
-            else if(result.type == "Traffic"){
-                totalTraffic += (Float)(result.value)
+            else if(result.type == "Rent"){
+                totalRent += (Float)(result.value)
             }
-            else if(result.type == "Bill"){
-                totalBill += (Float)(result.value)
+            else if(result.type == "Prize"){
+                totalPrize += (Float)(result.value)
             }
-            else if(result.type == "Entertainment"){
-                totalEntertainment += (Float)(result.value)
+            else if(result.type == "Coupon"){
+                totalCoupon += (Float)(result.value)
             }
-            else if(result.type == "Pet"){
-                totalPet += (Float)(result.value)
+            else if(result.type == "Lottery"){
+                totalLottery += (Float)(result.value)
             }
-            else if(result.type == "Health Care"){
-                totalHealthCare += (Float)(result.value)
+            else if(result.type == "Refund"){
+                totalRefund += (Float)(result.value)
             }
             else if(result.type == "Other"){
-                totalOthers += (Float)(result.value)
+                self.totalOthers += (Float)(result.value)
             }
             
             
@@ -76,7 +86,7 @@ class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         //Calculation for the percentage
-        let AmountOfCategories:[Float] = [self.totalFood,self.totalShopping,self.totalTraffic,totalBill,totalEntertainment,totalPet,totalHealthCare,totalOthers]
+        let AmountOfCategories:[Float] = [self.totalSalary,self.totalInvestment,self.totalRent,self.totalPrize,self.totalCoupon,self.totalLottery,self.totalRefund,self.totalOthers]
         let sum:Float = AmountOfCategories.reduce(0, +)
         
         var count = 0
@@ -108,14 +118,14 @@ class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSo
         view.addSubview(pieChartView)
         
         //round button for showing what color equal which cate
-      //  self.applyRoundCorner(Food_button)
-       // self.applyRoundCorner(Shopping_Button)
-      //  self.applyRoundCorner(Traffic_Button)
-      //  self.applyRoundCorner(Bill_Button)
-       // self.applyRoundCorner(Entertainment_Button)
-      //  self.applyRoundCorner(Pet_Button)
-      //  self.applyRoundCorner(HealthCare_Button)
-      //  self.applyRoundCorner(Other_Button)
+        self.applyRoundCorner(Salary_Button)
+        self.applyRoundCorner(Investment_Button)
+        self.applyRoundCorner(Rent_Button)
+        self.applyRoundCorner(Prize_Button)
+        self.applyRoundCorner(Coupon_Button)
+        self.applyRoundCorner(Lottery_Button)
+        self.applyRoundCorner(Refund_Button)
+        self.applyRoundCorner(Others_Button)
         
         super.viewDidLoad()
         
@@ -135,21 +145,21 @@ class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         cell.textLabel?.text = categories[indexPath.row]
         cell.imageView?.image = CategoryPhoto[indexPath.row]
-        /*
-        cell.percantage_bar.transform = CGAffineTransform(scaleX: 1, y: 3)
+        
+        cell.Percentage_Bar.transform = CGAffineTransform(scaleX: 1, y: 3)
         DispatchQueue.main.async {
-            cell.percantage_bar.setProgress(self.proportion[indexPath.row], animated: false)
+            cell.Percentage_Bar.setProgress(self.proportion[indexPath.row], animated: false)
             
         }
-        cell.percantage_bar.progressTintColor = uiColorArray[indexPath.row]
-        //cellLabel.text = "\(proportion[indexPath.row])"
-        //cell.textAlignment = .center
+        cell.Percentage_Bar.progressTintColor = uiColorArray[indexPath.row]
+       // cell.Percentage_Label.text = "\(proportion[indexPath.row])"
+       // cell.textAlignment = .center
         
         //var myIntValue = (Float)((round((proportion[indexPath.row]*100))/100))*100
         let myIntValue = proportion[indexPath.row] * 100
         let showValue = Float(round(myIntValue*10)/10)
         cell.Percentage_Label.text = "\(showValue) %"
-        */
+        
         return cell
     }
     
@@ -160,9 +170,7 @@ class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     
-    
-    
-    
+
     
     
 }
