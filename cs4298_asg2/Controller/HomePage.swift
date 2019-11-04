@@ -32,7 +32,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("cell clicked \(indexPath.row)")
         
         let sb = UIStoryboard.init(name: "Home", bundle: nil)
@@ -43,7 +43,13 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.navigationController!.pushViewController(destinationVC, animated: true)
     }
     
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            Record.deleteRecord(record: Record.fetchRecored()[indexPath.row])
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(showAnalyze), name: NSNotification.Name("ShowAnalyze"), object: nil)
@@ -77,7 +83,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func deletePress(_ sender: Any) {
         let records = Record.fetchRecored()
-        for record in records{  
+        for record in records{
             Record.deleteRecord(record: record)
         }
     }
