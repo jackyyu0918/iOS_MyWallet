@@ -9,14 +9,14 @@
 import UIKit
 import CoreData
 
-class HomePage: UIViewController, UITableViewDataSource {
+class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "prototypeCell") as! UITableViewCell
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "prototypeCell")! as UITableViewCell
         let contentView:UIView = cell.subviews[0] as UIView
         let stackView:UIStackView = contentView.subviews[0] as! UIStackView
         
@@ -30,6 +30,17 @@ class HomePage: UIViewController, UITableViewDataSource {
         
         
         return cell
+    }
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("cell clicked \(indexPath.row)")
+        
+        let sb = UIStoryboard.init(name: "Home", bundle: nil)
+        let destinationVC = sb.instantiateViewController(withIdentifier: "RecordDetailsView") as! RecordDetailsController
+        let record = Record.fetchRecored()[indexPath.row]
+        destinationVC.record = record
+        
+        self.navigationController!.pushViewController(destinationVC, animated: true)
     }
     
     
@@ -74,4 +85,6 @@ class HomePage: UIViewController, UITableViewDataSource {
     @IBAction func testPress(_ sender: Any) {
         print(Record.natureCount())
     }
+    
+    
 }

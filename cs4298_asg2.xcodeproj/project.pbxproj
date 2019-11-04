@@ -10,6 +10,7 @@
 		A61097EE236ECC7C004ABCBB /* Record+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61097EC236ECC7C004ABCBB /* Record+CoreDataClass.swift */; };
 		A61097F1236ECC8B004ABCBB /* DbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61097F0236ECC8B004ABCBB /* DbService.swift */; };
 		A6888EC9237030A300FA78C6 /* Record+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6888EC8237030A300FA78C6 /* Record+CoreDataProperties.swift */; };
+		A6888ECB23704B2100FA78C6 /* RecordDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6888ECA23704B2100FA78C6 /* RecordDetailsController.swift */; };
 		A6B7B01A236EB0920002FDE3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B7B018236EB0920002FDE3 /* Home.storyboard */; };
 		A6B7B01C236EB23D0002FDE3 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7B01B236EB23D0002FDE3 /* HomePage.swift */; };
 		A758F6CF236FD1E3007F6C53 /* Analysis_VC_Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758F6CE236FD1E3007F6C53 /* Analysis_VC_Income.swift */; };
@@ -54,6 +55,7 @@
 		A61097EC236ECC7C004ABCBB /* Record+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A61097F0236ECC8B004ABCBB /* DbService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbService.swift; sourceTree = "<group>"; };
 		A6888EC8237030A300FA78C6 /* Record+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Record+CoreDataProperties.swift"; path = "../Model/Record+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A6888ECA23704B2100FA78C6 /* RecordDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailsController.swift; sourceTree = "<group>"; };
 		A6B7B019236EB0920002FDE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = cs4298_asg2/View/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		A6B7B01B236EB23D0002FDE3 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		A758F6CE236FD1E3007F6C53 /* Analysis_VC_Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis_VC_Income.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		FA9AE07123695A780098280C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A6888ECA23704B2100FA78C6 /* RecordDetailsController.swift */,
 				FACF7752236875E600740E3C /* ContainerVC.swift */,
 				FA01D68D2369652700091E3F /* SideMenuVC.swift */,
 				FA01D68F236994A700091E3F /* MainVC.swift */,
@@ -339,13 +342,13 @@
 				A7CDA96B236ADECD00A761D2 /* Analysis_VC.swift in Sources */,
 				FACF7753236875E600740E3C /* ContainerVC.swift in Sources */,
 				A6888EC9237030A300FA78C6 /* Record+CoreDataProperties.swift in Sources */,
+				A6888ECB23704B2100FA78C6 /* RecordDetailsController.swift in Sources */,
 				A758F6CF236FD1E3007F6C53 /* Analysis_VC_Income.swift in Sources */,
 				FACF7751236875E600740E3C /* AppDelegate.swift in Sources */,
 				FA2504DC236C04AB00718148 /* AddRecordVC.swift in Sources */,
 				A77F0B94236D8046000DAC3F /* PieChart.swift in Sources */,
 				A6B7B01C236EB23D0002FDE3 /* HomePage.swift in Sources */,
 				FA01D68E2369652700091E3F /* SideMenuVC.swift in Sources */,
-				A61097EF236ECC7C004ABCBB /* Record+CoreDataProperties.swift in Sources */,
 				A61097EE236ECC7C004ABCBB /* Record+CoreDataClass.swift in Sources */,
 				FACF7759236875E600740E3C /* cs4298_asg2.xcdatamodeld in Sources */,
 				A758F6D1236FEB2F007F6C53 /* Analysis_TableCell_Income.swift in Sources */,
