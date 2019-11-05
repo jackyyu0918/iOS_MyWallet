@@ -64,6 +64,8 @@ public class Record: NSManagedObject {
         print("=========================")
     }
     
+    
+    //  MARK: Modified
     static func deleteRecord(record: Record){
         print("-------------------------")
         print("Before delete: ", Record.getCount())
