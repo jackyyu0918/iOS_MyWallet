@@ -179,6 +179,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="recordTableView" destination="d6A-uI-O8L" id="eGX-Le-B3M"/>
                         <segue destination="rwT-BI-Irw" kind="show" identifier="ShowCategory" id="Y9Z-hB-17e"/>
                         <segue destination="SAm-Rt-oIa" kind="show" identifier="ShowSetting" id="A1I-3s-DJO"/>
                         <segue destination="Qcg-gT-CxW" kind="show" identifier="ShowAnalyze" id="8VV-fW-6Kk"/>

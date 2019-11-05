@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var recordTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Record.fetchRecored().count
@@ -61,6 +62,10 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
     }
     
+    func render(){
+        recordTableView.reloadData()
+    }
+    
     @objc func showAnalyze() {
         performSegue(withIdentifier: "ShowAnalyze", sender: nil)
     }
@@ -73,7 +78,6 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: "ShowSetting", sender: nil)
     }
     
-    
     @IBAction func onMoreTapped(){
         print("Toggle side menu")
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
@@ -81,7 +85,8 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func addPress(_ sender: Any) {
         Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
-        Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "type", value: 1)
+        Record.addRecord(date: Date() as NSDate, nature: "OutCOme", photo: nil, remark: "remark", type: "Pet", value: 2)
+        render()
     }
     
     @IBAction func deletePress(_ sender: Any) {
@@ -89,9 +94,12 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         for record in records{
             Record.deleteRecord(record: record)
         }
+        render()
     }
     
     @IBAction func testPress(_ sender: Any) {
-        print(Record.natureCount())
+        print("Income: \(Record.getNatureSum(nature: Record.Nature.Income))")
+        print("Outcome: \(Record.getNatureSum(nature: Record.Nature.outcome))")
+        render()
     }
 }
