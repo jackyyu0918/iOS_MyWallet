@@ -106,7 +106,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func addPress(_ sender: Any) {
         Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
-        Record.addRecord(date: Date() as NSDate, nature: "OutCOme", photo: nil, remark: "remark", type: "Pet", value: 2)
+        Record.addRecord(date: Date() as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 2)
         render()
     }
     
