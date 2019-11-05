@@ -11,6 +11,9 @@ import CoreData
 
 class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var recordTableView: UITableView!
+    var records: [Record] = {
+        Record.fetchRecored()
+    }()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Record.fetchRecored().count
@@ -48,10 +51,12 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
-            Record.deleteRecord(record: Record.fetchRecored()[indexPath.row])
+            let currentRow: Int = indexPath.row
+            Record.deleteRecord(record: Record.fetchRecored()[currentRow])
             tableView.deleteRows(at: [indexPath], with: .fade)
+            Record.deleteRecord(record: records[currentRow])
         }
+        render()
     }
     
     override func viewDidLoad() {
