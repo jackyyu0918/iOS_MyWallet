@@ -102,7 +102,7 @@ public class Record: NSManagedObject {
                 outcomeSum = outcomeSum + record.value;
             }else{
                 print(record.nature)
-                fatalError()
+//                fatalError()
             }
         }
         
