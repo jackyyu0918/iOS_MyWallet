@@ -152,6 +152,13 @@ public class Record: NSManagedObject {
         return dateString
     }
     
+    func getMonthString() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM"
+        let dateString = formatter.string(from: self.date! as Date)
+        return dateString
+    }
+    
     func getRemarkString() -> String{
         return String(self.remark!)
     }

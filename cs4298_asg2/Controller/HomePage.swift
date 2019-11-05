@@ -89,27 +89,33 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         recordTableView.reloadData()
     }
     
-//    func render(month: Int){
-//        records = Record.fetchRecored()
-//        let tempRecords = records
-//        for result in tempRecords {
-//            if result.date
-//        }
-//        
-//        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
-//        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
-//        let Balance: Double = Income - Outcome
-//        
-//        IncomeSum.text = String(Income)
-//        OutcomeSum.text = String(Outcome)
-//        BalanceSum.text = String(Balance)
-//        
-//        IncomeStack.reloadInputViews()
-//        OutcomeStack.reloadInputViews()
-//        BalanceStack.reloadInputViews()
-//        
-//        recordTableView.reloadData()
-//    }
+    func render(month: String){
+        records = Record.fetchRecored()
+        var tempRecords = records
+        
+        var i = 0
+        for result in tempRecords {
+            if result.getMonthString() != month{
+                tempRecords.remove(at: i)
+                i-=1
+            }
+            i+=1
+        }
+
+        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
+        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
+        let Balance: Double = Income - Outcome
+
+        IncomeSum.text = String(Income)
+        OutcomeSum.text = String(Outcome)
+        BalanceSum.text = String(Balance)
+
+        IncomeStack.reloadInputViews()
+        OutcomeStack.reloadInputViews()
+        BalanceStack.reloadInputViews()
+
+        recordTableView.reloadData()
+    }
     
 //    func render(_ month: Int){
 //        records = Record.fetchRecored()

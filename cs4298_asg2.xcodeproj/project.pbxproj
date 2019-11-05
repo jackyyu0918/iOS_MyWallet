@@ -21,6 +21,7 @@
 		A7CDA96B236ADECD00A761D2 /* Analysis_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CDA96A236ADECD00A761D2 /* Analysis_VC.swift */; };
 		FA01D68E2369652700091E3F /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01D68D2369652700091E3F /* SideMenuVC.swift */; };
 		FA01D690236994A700091E3F /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01D68F236994A700091E3F /* MainVC.swift */; };
+		FA20EF51237174DC00065C1D /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20EF50237174DC00065C1D /* Month.swift */; };
 		FA2504DA236C048C00718148 /* AddRecordPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2504D8236C048C00718148 /* AddRecordPage.storyboard */; };
 		FA2504DC236C04AB00718148 /* AddRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2504DB236C04AB00718148 /* AddRecordVC.swift */; };
 		FA2D0E80236C50FB0076A2EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D0E7F236C50FB0076A2EF /* ViewController.swift */; };
@@ -66,6 +67,7 @@
 		A7CDA96A236ADECD00A761D2 /* Analysis_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis_VC.swift; sourceTree = "<group>"; };
 		FA01D68D2369652700091E3F /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		FA01D68F236994A700091E3F /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		FA20EF50237174DC00065C1D /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		FA2504D9236C048C00718148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = cs4298_asg2/View/Base.lproj/AddRecordPage.storyboard; sourceTree = "<group>"; };
 		FA2504DB236C04AB00718148 /* AddRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordVC.swift; sourceTree = "<group>"; };
 		FA2D0E7F236C50FB0076A2EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		FA9AE07323695A7D0098280C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA20EF50237174DC00065C1D /* Month.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			files = (
 				FA2D0E80236C50FB0076A2EF /* ViewController.swift in Sources */,
 				A61097F1236ECC8B004ABCBB /* DbService.swift in Sources */,
+				FA20EF51237174DC00065C1D /* Month.swift in Sources */,
 				A7CDA96B236ADECD00A761D2 /* Analysis_VC.swift in Sources */,
 				FACF7753236875E600740E3C /* ContainerVC.swift in Sources */,
 				A6888EC9237030A300FA78C6 /* Record+CoreDataProperties.swift in Sources */,

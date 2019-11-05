@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "cs4298_asg2/View/Record+CoreDataClass.swift"
-            timestampString = "594628481.3719651"
+            timestampString = "594638678.737167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "OutcomeType"
+            landmarkType = "13">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -42,7 +42,7 @@
                   moduleName = "cs4298_asg2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kakityu6/Desktop/cs4298_asg2/cs4298_asg2/View/Record+CoreDataClass.swift"
-                  timestampString = "594637459.416961"
+                  timestampString = "594638678.799229"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "36"
@@ -57,7 +57,7 @@
                   moduleName = "cs4298_asg2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kakityu6/Desktop/cs4298_asg2/cs4298_asg2/View/Record+CoreDataClass.swift"
-                  timestampString = "594637459.418221"
+                  timestampString = "594638678.800755"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "36"
