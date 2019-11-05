@@ -118,6 +118,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if(months.contains(recordMonth)){
                 records.append(record)
             }
+            i+=1
         }
         
         let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
@@ -134,6 +135,28 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         recordTableView.reloadData()
     }
+    
+//    func render(_ month: Int){
+//        records = Record.fetchRecored()
+//
+//        if {
+//           records.remove(at: )
+//        }
+//
+//        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
+//        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
+//        let Balance: Double = Income - Outcome
+//
+//        IncomeSum.text = String(Income)
+//        OutcomeSum.text = String(Outcome)
+//        BalanceSum.text = String(Balance)
+//
+//        IncomeStack.reloadInputViews()
+//        OutcomeStack.reloadInputViews()
+//        BalanceStack.reloadInputViews()
+//
+//        recordTableView.reloadData()
+//    }
 
     // MARK:    RecodeTableView Realted
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
