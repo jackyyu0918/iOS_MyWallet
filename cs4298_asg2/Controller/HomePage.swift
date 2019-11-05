@@ -11,12 +11,21 @@ import CoreData
 
 class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var recordTableView: UITableView!
-    var records: [Record] = {
-        Record.fetchRecored()
-    }()
     
+    var records: [Record] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(showAnalyze), name: NSNotification.Name("ShowAnalyze"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showCategory), name: NSNotification.Name("ShowCategory"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showSetting), name: NSNotification.Name("ShowSetting"), object: nil)
+        // Do any additional setup after loading the view.
+        render()
+    }
+
+    // MARK:    RecodeTableView Realted
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Record.fetchRecored().count
+        return records.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -28,12 +37,11 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let type:UILabel = stackView.subviews[1] as! UILabel
         let value:UILabel = stackView.subviews[2] as! UILabel
         
-        let currentRecord = Record.fetchRecored()[indexPath.row]
+        let currentRecord = records[indexPath.row]
         
         date.text? = currentRecord.getDateString()
         type.text? = currentRecord.getTypeString()
         value.text? = currentRecord.getValueString()
-        
         
         return cell
     }
@@ -43,7 +51,8 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let sb = UIStoryboard.init(name: "Home", bundle: nil)
         let destinationVC = sb.instantiateViewController(withIdentifier: "RecordDetailsView") as! RecordDetailsController
-        let record = Record.fetchRecored()[indexPath.row]
+        let record = records[indexPath.row]
+        
         destinationVC.record = record
         
         self.navigationController!.pushViewController(destinationVC, animated: true)
@@ -52,20 +61,12 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let currentRow: Int = indexPath.row
-            Record.deleteRecord(record: Record.fetchRecored()[currentRow])
             tableView.deleteRows(at: [indexPath], with: .fade)
             Record.deleteRecord(record: records[currentRow])
         }
         render()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(showAnalyze), name: NSNotification.Name("ShowAnalyze"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showCategory), name: NSNotification.Name("ShowCategory"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showSetting), name: NSNotification.Name("ShowSetting"), object: nil)
-        // Do any additional setup after loading the view.
-    }
     
     @IBOutlet weak var IncomeStack: UIStackView!
     @IBOutlet weak var OutcomeStack: UIStackView!
@@ -76,6 +77,8 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var BalanceSum: UILabel!
     
     func render(){
+        records = Record.fetchRecored()
+        
         let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
         let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
         let Balance: Double = Income - Outcome
@@ -87,7 +90,6 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         IncomeStack.reloadInputViews()
         OutcomeStack.reloadInputViews()
         BalanceStack.reloadInputViews()
-
         
         recordTableView.reloadData()
     }
