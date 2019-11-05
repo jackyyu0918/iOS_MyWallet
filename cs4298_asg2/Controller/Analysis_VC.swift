@@ -33,29 +33,24 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     var results =  Record.fetchRecored()
     
-   
-    
     let categories:[String] = ["Food","Shopping","Traffic","Bill","Entertainment","Pet","Health Care","Others"]
-    let CategoryPhoto = [ #imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "Shopping"),#imageLiteral(resourceName: "Traffic"),#imageLiteral(resourceName: "Bill"),#imageLiteral(resourceName: "Entertainment"),#imageLiteral(resourceName: "Pet"),#imageLiteral(resourceName: "HealthCare"),#imageLiteral(resourceName: "Others")]
+    let CategoryPhoto = [ #imageLiteral(resourceName: "Food2-1"),#imageLiteral(resourceName: "Shopping2"),#imageLiteral(resourceName: "Car2"),#imageLiteral(resourceName: "Bill2"),#imageLiteral(resourceName: "Entertain,et2"),#imageLiteral(resourceName: "Pet2-1"),#imageLiteral(resourceName: "Healthcare-1"),#imageLiteral(resourceName: "Other2")]
     
     var proportion : Array<Float> = Array(repeating: 0, count: 8)
     var uiColorArray = [UIColor]()
     
-
-    
-
     override func viewDidLoad() {
         
         
         
         //color for bar chart
-        self.uiColorArray.append(UIColor(red: 112.0/255, green: 86.0/255, blue: 164.0/255, alpha: 1.0)) // in Swift 3, its UIColor.blue
-        self.uiColorArray.append(UIColor.blue)
-        self.uiColorArray.append(UIColor.green)
-        self.uiColorArray.append(UIColor.yellow)
+        self.uiColorArray.append(UIColor(red: 141.0/255, green: 86.0/255, blue: 164.0/255, alpha: 1.0)) // in Swift 3, its UIColor.blue
+        self.uiColorArray.append(UIColor(red: 4.0/255, green: 51.0/255, blue: 255.0/255, alpha: 1.0))
+        self.uiColorArray.append(UIColor(red: 104.0/255, green: 98.0/255, blue: 242.0/255, alpha: 1.0))
+        self.uiColorArray.append(UIColor(red: 84.0/255, green: 100.0/255, blue: 157.0/255, alpha: 1.0))
         self.uiColorArray.append(UIColor.purple)
         //self.uiColorArray.append(UIColor.purple)
-        self.uiColorArray.append(UIColor.black)
+        self.uiColorArray.append(UIColor(red: 84.0/255, green: 100.0/255, blue: 100.0/255, alpha: 1.0))
         self.uiColorArray.append(UIColor.orange)
         self.uiColorArray.append(UIColor.brown)
         
@@ -106,19 +101,16 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
             
         }
         
-        
-        
-        
         // Create pie chart based on above percentage
         let pieChartView = PieChartView()
         pieChartView.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: 250)
         pieChartView.segments = [
-            Segment(color: UIColor(red: 112.0/255, green: 86.0/255, blue: 164.0/255, alpha: 1.0), value: CGFloat(proportion[0])),
-            Segment(color: .blue, value: CGFloat(proportion[1])),
-            Segment(color: .green, value: CGFloat(proportion[2])),
-            Segment(color: .yellow, value: CGFloat(proportion[3])),
+            Segment(color: UIColor(red: 141.0/255, green: 86.0/255, blue: 164.0/255, alpha: 1.0), value: CGFloat(proportion[0])),
+            Segment(color: UIColor(red: 4.0/255, green: 51.0/255, blue: 200.0/255, alpha: 1.0), value: CGFloat(proportion[1])),
+            Segment(color: UIColor(red: 104.0/255, green: 98.0/255, blue: 242.0/255, alpha: 1.0), value: CGFloat(proportion[2])),
+            Segment(color: UIColor(red: 20.0/255, green: 200.0/255, blue: 200.0/255, alpha: 1.0), value: CGFloat(proportion[3])),
             Segment(color: .purple,value: CGFloat(proportion[4])),
-            Segment(color: .black,value:CGFloat(proportion[5])),
+            Segment(color: UIColor(red: 84.0/255, green: 100.0/255, blue: 100.0/255, alpha: 1.0),value:CGFloat(proportion[5])),
             Segment(color: .orange, value:CGFloat(proportion[6])),
             Segment(color: .brown, value:CGFloat(proportion[7]))
         ]
@@ -135,8 +127,6 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         self.applyRoundCorner(Other_Button)
         
         
-        
- 
         super.viewDidLoad()
         }
     

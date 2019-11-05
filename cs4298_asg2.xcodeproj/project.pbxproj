@@ -52,9 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A61097EC236ECC7C004ABCBB /* Record+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A61097EC236ECC7C004ABCBB /* Record+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Record+CoreDataClass.swift"; path = "../Record+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A61097F0236ECC8B004ABCBB /* DbService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbService.swift; sourceTree = "<group>"; };
-		A6888EC8237030A300FA78C6 /* Record+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Record+CoreDataProperties.swift"; path = "../Model/Record+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A6888EC8237030A300FA78C6 /* Record+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A6888ECA23704B2100FA78C6 /* RecordDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailsController.swift; sourceTree = "<group>"; };
 		A6B7B019236EB0920002FDE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = cs4298_asg2/View/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		A6B7B01B236EB23D0002FDE3 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -147,6 +147,8 @@
 		FA9AE07323695A7D0098280C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A6888EC8237030A300FA78C6 /* Record+CoreDataProperties.swift */,
+				A61097EC236ECC7C004ABCBB /* Record+CoreDataClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

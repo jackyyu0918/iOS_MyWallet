@@ -146,9 +146,6 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.navigationController!.pushViewController(destinationVC, animated: true)
     }
     
-   
-    
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let currentRecordIndex: Int = indexPath.row
         if editingStyle == .delete {

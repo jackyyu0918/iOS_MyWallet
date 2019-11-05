@@ -34,7 +34,7 @@ class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSo
     var results =  Record.fetchRecored()
     
     let categories:[String] = ["Salary","Investment","Rent","Prize","Coupon","Lottery","Refund","Others"]
-    let CategoryPhoto = [ #imageLiteral(resourceName: "Salary"),#imageLiteral(resourceName: "Investment"),#imageLiteral(resourceName: "Rent"),#imageLiteral(resourceName: "Prize"),#imageLiteral(resourceName: "Coupon"),#imageLiteral(resourceName: "Lottery"),#imageLiteral(resourceName: "Refund"),#imageLiteral(resourceName: "Others")]
+    let CategoryPhoto = [ #imageLiteral(resourceName: "Salary"),#imageLiteral(resourceName: "Investment"),#imageLiteral(resourceName: "Rent"),#imageLiteral(resourceName: "Prize"),#imageLiteral(resourceName: "Coupon"),#imageLiteral(resourceName: "Lottery"),#imageLiteral(resourceName: "Refund"),#imageLiteral(resourceName: "Other2")]
     
     var proportion : Array<Float> = Array(repeating: 0, count: 8)
     var uiColorArray = [UIColor]()
@@ -42,13 +42,13 @@ class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     override func viewDidLoad() {
         //color for bar chart
-        self.uiColorArray.append(UIColor.red) // in Swift 3, its UIColor.blue
-        self.uiColorArray.append(UIColor.blue)
-        self.uiColorArray.append(UIColor.green)
-        self.uiColorArray.append(UIColor.yellow)
+        self.uiColorArray.append(UIColor(red: 141.0/255, green: 86.0/255, blue: 164.0/255, alpha: 1.0)) // in Swift 3, its UIColor.blue
+        self.uiColorArray.append(UIColor(red: 4.0/255, green: 51.0/255, blue: 255.0/255, alpha: 1.0))
+        self.uiColorArray.append(UIColor(red: 104.0/255, green: 98.0/255, blue: 242.0/255, alpha: 1.0))
+        self.uiColorArray.append(UIColor(red: 84.0/255, green: 100.0/255, blue: 157.0/255, alpha: 1.0))
         self.uiColorArray.append(UIColor.purple)
         //self.uiColorArray.append(UIColor.purple)
-        self.uiColorArray.append(UIColor.black)
+        self.uiColorArray.append(UIColor(red: 84.0/255, green: 100.0/255, blue: 100.0/255, alpha: 1.0))
         self.uiColorArray.append(UIColor.orange)
         self.uiColorArray.append(UIColor.brown)
         
@@ -106,12 +106,12 @@ class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSo
         let pieChartView = PieChartView()
         pieChartView.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: 250)
         pieChartView.segments = [
-            Segment(color: .red, value: CGFloat(proportion[0])),
-            Segment(color: .blue, value: CGFloat(proportion[1])),
-            Segment(color: .green, value: CGFloat(proportion[2])),
-            Segment(color: .yellow, value: CGFloat(proportion[3])),
+            Segment(color: UIColor(red: 141.0/255, green: 86.0/255, blue: 164.0/255, alpha: 1.0), value: CGFloat(proportion[0])),
+            Segment(color: UIColor(red: 4.0/255, green: 51.0/255, blue: 200.0/255, alpha: 1.0), value: CGFloat(proportion[1])),
+            Segment(color: UIColor(red: 104.0/255, green: 98.0/255, blue: 242.0/255, alpha: 1.0), value: CGFloat(proportion[2])),
+            Segment(color: UIColor(red: 20.0/255, green: 200.0/255, blue: 200.0/255, alpha: 1.0), value: CGFloat(proportion[3])),
             Segment(color: .purple,value: CGFloat(proportion[4])),
-            Segment(color: .black,value:CGFloat(proportion[5])),
+            Segment(color: UIColor(red: 84.0/255, green: 100.0/255, blue: 100.0/255, alpha: 1.0),value:CGFloat(proportion[5])),
             Segment(color: .orange, value:CGFloat(proportion[6])),
             Segment(color: .brown, value:CGFloat(proportion[7]))
         ]
