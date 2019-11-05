@@ -23,13 +23,13 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let date:UILabel = stackView.subviews[0] as! UILabel
         let type:UILabel = stackView.subviews[1] as! UILabel
         let value:UILabel = stackView.subviews[2] as! UILabel
-
+        
         let currentRecord = Record.fetchRecored()[indexPath.row]
         
         date.text? = currentRecord.getDateString()
         type.text? = currentRecord.getTypeString()
         value.text? = currentRecord.getValueString()
-
+        
         
         return cell
     }
@@ -52,6 +52,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(showAnalyze), name: NSNotification.Name("ShowAnalyze"), object: nil)
@@ -92,9 +93,5 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func testPress(_ sender: Any) {
         print(Record.natureCount())
-    }
-    
-    
-    @IBAction func addRecordPress(_ sender: Any) {
     }
 }
