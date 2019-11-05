@@ -46,8 +46,10 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     override func viewDidLoad() {
         
+        
+        
         //color for bar chart
-        self.uiColorArray.append(UIColor.red) // in Swift 3, its UIColor.blue
+        self.uiColorArray.append(UIColor(red: 112.0/255, green: 86.0/255, blue: 164.0/255, alpha: 1.0)) // in Swift 3, its UIColor.blue
         self.uiColorArray.append(UIColor.blue)
         self.uiColorArray.append(UIColor.green)
         self.uiColorArray.append(UIColor.yellow)
@@ -111,7 +113,7 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
         let pieChartView = PieChartView()
         pieChartView.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: 250)
         pieChartView.segments = [
-            Segment(color: .red, value: CGFloat(proportion[0])),
+            Segment(color: UIColor(red: 112.0/255, green: 86.0/255, blue: 164.0/255, alpha: 1.0), value: CGFloat(proportion[0])),
             Segment(color: .blue, value: CGFloat(proportion[1])),
             Segment(color: .green, value: CGFloat(proportion[2])),
             Segment(color: .yellow, value: CGFloat(proportion[3])),
@@ -146,6 +148,8 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:Analysis_TableCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Analysis_TableCell
