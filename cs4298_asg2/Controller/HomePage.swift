@@ -62,7 +62,23 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var IncomeStack: UIStackView!
+    @IBOutlet weak var OutcomeStack: UIStackView!
+    @IBOutlet weak var BalanceStack: UIStackView!
+    
+    @IBOutlet weak var IncomeSum: UILabel!
+    @IBOutlet weak var OutcomeSum: UILabel!
+    @IBOutlet weak var BalanceSum: UILabel!
+    
     func render(){
+        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
+        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
+        let Balance: Double = Income - Outcome
+        
+        IncomeSum.text = String(Income)
+        OutcomeSum.text = String(Outcome)
+        BalanceSum.text = String(Balance)
+        
         recordTableView.reloadData()
     }
     
