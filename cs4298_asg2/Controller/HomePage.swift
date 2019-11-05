@@ -89,13 +89,17 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.navigationController!.pushViewController(destinationVC, animated: true)
     }
     
+   
+    
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let currentRecordIndex: Int = indexPath.row
         if editingStyle == .delete {
-            let currentRow: Int = indexPath.row
-            Record.deleteRecord(record: records[currentRow])
+            Record.deleteRecord(record: records[currentRecordIndex])
+            records.remove(at: currentRecordIndex)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            render()
         }
-        render()
     }
     
     //  MARK: Navigation Bar
@@ -117,23 +121,22 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: Testing button
-//    @IBAction func addPress(_ sender: Any) {
-//        Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
-//        Record.addRecord(date: Date() as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 2)
-//        render()
-//    }
-//
-//    @IBAction func deletePress(_ sender: Any) {
-//        for record in records{
-//            Record.deleteRecord(record: record)
-//        }
-//        render()
-//    }
-//
-//    @IBAction func testPress(_ sender: Any) {
-//        print("Income: \(Record.getNatureSum(nature: Record.Nature.Income))")
-//        print("Outcome: \(Record.getNatureSum(nature: Record.Nature.outcome))")
-//        render()
-//    }
+    @IBAction func addPress(_ sender: Any) {
+        Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
+        Record.addRecord(date: Date() as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 2)
+        render()
+    }
+    
+    @IBAction func deletePress(_ sender: Any) {
+        for record in records{
+            Record.deleteRecord(record: record)
+        }
+        render()
+    }
+    
+    @IBAction func testPress(_ sender: Any) {
+        print("Income: \(Record.getNatureSum(nature: Record.Nature.Income))")
+        print("Outcome: \(Record.getNatureSum(nature: Record.Nature.outcome))")
+        render()
+    }
 }
-
