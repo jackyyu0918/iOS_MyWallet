@@ -45,20 +45,21 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
         downSwipe.direction = .down
         
-//        var dateComponents = DateComponents()
-//        
-//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
-//        dateComponents.month = 1
-//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 2)
-//        dateComponents.month = 2
-//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 3)
-//        dateComponents.month = 4
-//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 4)
-//        dateComponents.month = 1
-//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Pet", value: 5)
-//        dateComponents.month = 1
-//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 5)
-
+        var dateComponents = DateComponents()
+        let userCalendar = Calendar.current
+        dateComponents.year = 2019
+        dateComponents.month = 1
+        dateComponents.day = 1
+        
+        dateComponents.month = 9
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Pet", value: 100)
+        dateComponents.month = 10
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Food", value: 200)
+        dateComponents.month = 11
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Investment", value: 300)
+        dateComponents.month = 11
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Shopping", value: 400)
+       
         stackView.addGestureRecognizer(rightSwipe)
         stackView.addGestureRecognizer(leftSwipe)
         stackView.addGestureRecognizer(upSwipe)
@@ -109,6 +110,8 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func render(){
+        MonthLabel.text = String("All")
+
         records = Record.fetchRecored()
         
         let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
@@ -164,29 +167,6 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         recordTableView.reloadData()
     }
-    
-    
-    //    func render(_ month: Int){
-    //        records = Record.fetchRecored()
-    //
-    //        if {
-    //           records.remove(at: )
-    //        }
-    //
-    //        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
-    //        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
-    //        let Balance: Double = Income - Outcome
-    //
-    //        IncomeSum.text = String(Income)
-    //        OutcomeSum.text = String(Outcome)
-    //        BalanceSum.text = String(Balance)
-    //
-    //        IncomeStack.reloadInputViews()
-    //        OutcomeStack.reloadInputViews()
-    //        BalanceStack.reloadInputViews()
-    //
-    //        recordTableView.reloadData()
-    //    }
     
     // MARK:    RecodeTableView Realted
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
