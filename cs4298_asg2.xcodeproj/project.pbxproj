@@ -133,11 +133,11 @@
 		FA9AE07223695A7C0098280C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FACF775C236875E800740E3C /* LaunchScreen.storyboard */,
 				A6888EC8237030A300FA78C6 /* Record+CoreDataProperties.swift */,
 				A61097EC236ECC7C004ABCBB /* Record+CoreDataClass.swift */,
 				A6B7B018236EB0920002FDE3 /* Home.storyboard */,
 				A7C975AE236D89C500CE04AC /* Analyze.storyboard */,
-				FACF775C236875E800740E3C /* LaunchScreen.storyboard */,
 				FA2504D8236C048C00718148 /* AddRecordPage.storyboard */,
 				FACF7754236875E600740E3C /* Main.storyboard */,
 			);
