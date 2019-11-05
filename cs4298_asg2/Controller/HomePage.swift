@@ -79,6 +79,11 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         OutcomeSum.text = String(Outcome)
         BalanceSum.text = String(Balance)
         
+        IncomeStack.reloadInputViews()
+        OutcomeStack.reloadInputViews()
+        BalanceStack.reloadInputViews()
+
+        
         recordTableView.reloadData()
     }
     

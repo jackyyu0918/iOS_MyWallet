@@ -213,7 +213,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="Balance" destination="aoW-Hg-5Xv" id="cq3-Hu-pSD"/>
                         <outlet property="BalanceStack" destination="R2W-UR-Mtx" id="CUZ-Up-nJz"/>
                         <outlet property="BalanceSum" destination="aoW-Hg-5Xv" id="gKG-ow-bX2"/>
                         <outlet property="IncomeStack" destination="p4M-P5-HZw" id="e2F-Ax-gGC"/>
