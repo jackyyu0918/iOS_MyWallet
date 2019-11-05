@@ -262,8 +262,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="K31-Aq-aE6">
-                                <rect key="frame" x="10" y="54" width="394" height="300"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="K31-Aq-aE6">
+                                <rect key="frame" x="10" y="54" width="394" height="750"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgh-nJ-QSr">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
@@ -381,18 +381,25 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBo-iW-e9C">
-                                        <rect key="frame" x="0.0" y="250" width="394" height="50"/>
+                                        <rect key="frame" x="0.0" y="250" width="394" height="500"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqD-vx-w2h">
-                                                <rect key="frame" x="0.0" y="0.0" width="197" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receipt: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqD-vx-w2h">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="500"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ON4-AR-llm">
-                                                <rect key="frame" x="197" y="0.0" width="197" height="50"/>
+                                                <rect key="frame" x="67" y="0.0" width="327" height="500"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ON4-AR-llm" secondAttribute="height" multiplier="327:500" id="r7R-tl-LfH"/>
+                                                </constraints>
                                             </imageView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="394" id="HZi-Ch-jQw"/>
+                                            <constraint firstAttribute="height" constant="500" id="sr5-gp-3jJ"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -416,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mA-Ug-erx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2339" y="798"/>
+            <point key="canvasLocation" x="2337.68115942029" y="797.54464285714278"/>
         </scene>
     </scenes>
     <resources>

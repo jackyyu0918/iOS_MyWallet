@@ -171,30 +171,6 @@
             </objects>
             <point key="canvasLocation" x="1284" y="1726"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="tZy-tU-Ojh">
-            <objects>
-                <viewController storyboardIdentifier="UIViewController-vKj-6R-2PN" id="vKj-6R-2PN" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Fl4-jK-ATT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="two-Jw-hIE">
-                                <rect key="frame" x="163" y="194" width="55" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="aCW-ZH-H84"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OrJ-Lq-6Hc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2400" y="1726"/>
-        </scene>
         <!--AddRecordPage-->
         <scene sceneID="Ac3-or-uuN">
             <objects>
@@ -220,6 +196,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHG-5F-amT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1539.1304347826087" y="797.54464285714278"/>
+        </scene>
+        <!--UIViewController-vKj-6R-2PN-->
+        <scene sceneID="RlA-7b-tbs">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="UIViewController-vKj-6R-2PN" storyboardName="Setting" referencedIdentifier="UIViewController-vKj-6R-2PN" id="XWd-kU-rQk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VoR-dJ-uQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2400" y="1726"/>
         </scene>
     </scenes>
 </document>
