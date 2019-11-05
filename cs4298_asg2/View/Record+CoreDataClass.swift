@@ -15,7 +15,7 @@ public class Record: NSManagedObject {
     
     enum Nature: String {
         case Income = "Income"
-        case outcome = "Outcome"
+        case Expense = "Expense"
     }
     
     enum IncomeType: String{
@@ -28,7 +28,7 @@ public class Record: NSManagedObject {
         case Refund = "Refund"
     }
     
-    enum OutcomeType: String{
+    enum ExpenseType: String{
         case Food = "Food"
         case Shopping = "Shopping"
         case Traffic = "Traffic"
@@ -93,21 +93,21 @@ public class Record: NSManagedObject {
     
     static func getNatureSum(nature : Nature) -> Double{
         var incomeSum: Double = 0;
-        var outcomeSum: Double = 0;
+        var ExpenseSum: Double = 0;
         
         let records = Record.fetchRecored();
         
         for record in records{
             if (record.nature == "Income"){
                 incomeSum = incomeSum + record.value;
-            }else if(record.nature == "Outcome"){
-                outcomeSum = outcomeSum + record.value;
+            }else if(record.nature == "Expense"){
+                ExpenseSum = ExpenseSum + record.value;
             }else{
                 print(record.nature)
             }
         }
         
-        return nature == Nature.Income ? incomeSum : outcomeSum
+        return nature == Nature.Income ? incomeSum : ExpenseSum
     }
     
     static func natureCount() -> AnyObject{

@@ -81,7 +81,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="99G-f4-tD2">
                                         <rect key="frame" x="189.5" y="0.0" width="90" height="53"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cj0-Zz-pkL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cj0-Zz-pkL">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="26.5"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -217,11 +217,11 @@
                     <connections>
                         <outlet property="BalanceStack" destination="R2W-UR-Mtx" id="CUZ-Up-nJz"/>
                         <outlet property="BalanceSum" destination="aoW-Hg-5Xv" id="gKG-ow-bX2"/>
+                        <outlet property="ExpenseStack" destination="99G-f4-tD2" id="EYm-Op-PW6"/>
+                        <outlet property="ExpenseSum" destination="gdK-Na-scE" id="0Uu-j2-I0v"/>
                         <outlet property="IncomeStack" destination="p4M-P5-HZw" id="e2F-Ax-gGC"/>
                         <outlet property="IncomeSum" destination="KYx-cc-LUM" id="lkP-hj-t3R"/>
                         <outlet property="MonthLabel" destination="fZL-Ht-ncF" id="qAT-QR-YcR"/>
-                        <outlet property="OutcomeStack" destination="99G-f4-tD2" id="EYm-Op-PW6"/>
-                        <outlet property="OutcomeSum" destination="gdK-Na-scE" id="0Uu-j2-I0v"/>
                         <outlet property="recordTableView" destination="d6A-uI-O8L" id="eGX-Le-B3M"/>
                         <outlet property="stackView" destination="bXE-nt-Dvb" id="1gK-DN-D0I"/>
                         <segue destination="rwT-BI-Irw" kind="show" identifier="ShowCategory" id="Y9Z-hB-17e"/>

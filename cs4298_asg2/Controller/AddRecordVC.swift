@@ -35,7 +35,7 @@ class AddRecordVC: UIViewController {
     //Type section
     
     var NatureOfMoney: String = ""
-    @IBOutlet weak var outcomeButton: UIButton!
+    @IBOutlet weak var ExpenseButton: UIButton!
     @IBOutlet weak var incomeButton: UIButton!
     
     var typeName: String?
@@ -44,15 +44,15 @@ class AddRecordVC: UIViewController {
     
     @IBAction func ChoosingNature(_ sender: UIButton) {
         if sender.tag == 1{
-            NatureOfMoney = "Outcome"
-            outcomeButton.setTitleColor(UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1), for: .normal)
+            NatureOfMoney = "Expense"
+            ExpenseButton.setTitleColor(UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1), for: .normal)
             incomeButton.setTitleColor(.gray, for: .normal)
             typeNameLabel.text = ""
             updateUI()
         } else if sender.tag == 2{
             NatureOfMoney = "Income"
             incomeButton.setTitleColor(UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1), for: .normal)
-            outcomeButton.setTitleColor(.gray, for: .normal)
+            ExpenseButton.setTitleColor(.gray, for: .normal)
             typeNameLabel.text = ""
             updateUI()
         }
@@ -220,7 +220,7 @@ class AddRecordVC: UIViewController {
     
     func updateUI(){
         //to solve blue button, change to custom button
-        if NatureOfMoney == "Outcome" {
+        if NatureOfMoney == "Expense" {
             button1.setImage(UIImage(named: "Food"), for: .normal)
             button2.setImage(UIImage(named: "Shopping"), for: .normal)
             button3.setImage(UIImage(named: "Traffic"), for: .normal)

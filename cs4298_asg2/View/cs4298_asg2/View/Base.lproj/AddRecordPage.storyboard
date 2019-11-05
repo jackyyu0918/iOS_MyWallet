@@ -114,9 +114,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BM-Uy-SiR">
-                                <rect key="frame" x="116" y="109" width="63" height="30"/>
+                                <rect key="frame" x="118" y="109" width="59" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Outcome"/>
+                                <state key="normal" title="Expense"/>
                                 <connections>
                                     <action selector="ChoosingNature:" destination="vwj-pY-WOB" eventType="touchUpInside" id="XAF-px-Ulb"/>
                                 </connections>
@@ -212,6 +212,7 @@
                         <viewLayoutGuide key="safeArea" id="ksx-FU-Fti"/>
                     </view>
                     <connections>
+                        <outlet property="ExpenseButton" destination="7BM-Uy-SiR" id="srf-ee-3is"/>
                         <outlet property="addButton" destination="Fyf-H6-pib" id="5ws-wB-eIw"/>
                         <outlet property="button1" destination="9IR-zq-Azf" id="V1H-6L-QBC"/>
                         <outlet property="button2" destination="w3y-u0-3VK" id="SPn-8s-MEn"/>
@@ -226,7 +227,6 @@
                         <outlet property="imagePickerButton" destination="Fg2-zX-cIo" id="z6a-yh-EMQ"/>
                         <outlet property="imageView" destination="jGt-i1-Mit" id="bPf-Er-1GM"/>
                         <outlet property="incomeButton" destination="mm5-D5-mgS" id="P1L-ow-9qX"/>
-                        <outlet property="outcomeButton" destination="7BM-Uy-SiR" id="srf-ee-3is"/>
                         <outlet property="remarkTextField" destination="nFs-ko-zmX" id="6ZI-bA-jEc"/>
                         <outlet property="retrieveButto" destination="WNH-Oy-r5G" id="2dm-z2-gQC"/>
                         <outlet property="typeNameLabel" destination="iXk-pA-imE" id="wVA-Gx-M8a"/>

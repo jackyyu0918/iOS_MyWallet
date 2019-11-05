@@ -12,11 +12,11 @@ import CoreData
 class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var IncomeStack: UIStackView!
-    @IBOutlet weak var OutcomeStack: UIStackView!
+    @IBOutlet weak var ExpenseStack: UIStackView!
     @IBOutlet weak var BalanceStack: UIStackView!
     
     @IBOutlet weak var IncomeSum: UILabel!
-    @IBOutlet weak var OutcomeSum: UILabel!
+    @IBOutlet weak var ExpenseSum: UILabel!
     @IBOutlet weak var BalanceSum: UILabel!
     
     @IBOutlet weak var recordTableView: UITableView!
@@ -52,13 +52,29 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         dateComponents.day = 1
         
         dateComponents.month = 9
-        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Pet", value: 100)
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Expense", photo: nil, remark: "remark", type: "Pet", value: 100)
         dateComponents.month = 10
-        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Food", value: 200)
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Expense", photo: nil, remark: "remark", type: "Food", value: 200)
         dateComponents.month = 11
-        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Investment", value: 300)
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Investment", value: 300)
         dateComponents.month = 11
-        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Shopping", value: 400)
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Expense", photo: nil, remark: "remark", type: "Shopping", value: 400)
+        dateComponents.month = 9
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Salary", value: 3500)
+        dateComponents.month = 10
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Expense", photo: nil, remark: "remark", type: "Bill", value: 350)
+        dateComponents.month = 11
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Expense", photo: nil, remark: "remark", type: "Entertainment", value: 300)
+        dateComponents.month = 11
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Expense", photo: nil, remark: "remark", type: "Shopping", value: 400)
+        dateComponents.month = 9
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Expense", photo: nil, remark: "remark", type: "Pet", value: 100)
+        dateComponents.month = 10
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Expense", photo: nil, remark: "remark", type: "Food", value: 200)
+        dateComponents.month = 11
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Investment", value: 300)
+        dateComponents.month = 11
+        Record.addRecord(date: userCalendar.date(from: dateComponents)! as NSDate, nature: "Expense", photo: nil, remark: "remark", type: "Shopping", value: 400)
        
         stackView.addGestureRecognizer(rightSwipe)
         stackView.addGestureRecognizer(leftSwipe)
@@ -115,15 +131,15 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         records = Record.fetchRecored()
         
         let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
-        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
-        let Balance: Double = Income - Outcome
+        let Expense: Double = Record.getNatureSum(nature: Record.Nature.Expense)
+        let Balance: Double = Income - Expense
         
         IncomeSum.text = String(Income)
-        OutcomeSum.text = String(Outcome)
+        ExpenseSum.text = String(Expense)
         BalanceSum.text = String(Balance)
         
         IncomeStack.reloadInputViews()
-        OutcomeStack.reloadInputViews()
+        ExpenseStack.reloadInputViews()
         BalanceStack.reloadInputViews()
         
         recordTableView.reloadData()
@@ -143,26 +159,26 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Count
         
         var Income: Double = 0;
-        var Outcome: Double = 0;
+        var Expense: Double = 0;
         
         for record in records{
             if (record.nature == "Income"){
                 Income = Income + record.value;
-            }else if(record.nature == "Outcome"){
-                Outcome = Outcome + record.value;
+            }else if(record.nature == "Expense"){
+                Expense = Expense + record.value;
             }else{
                 print(record.nature)
             }
         }
 
-        let Balance: Double = Income - Outcome
+        let Balance: Double = Income - Expense
         
         IncomeSum.text = String(Income)
-        OutcomeSum.text = String(Outcome)
+        ExpenseSum.text = String(Expense)
         BalanceSum.text = String(Balance)
         
         IncomeStack.reloadInputViews()
-        OutcomeStack.reloadInputViews()
+        ExpenseStack.reloadInputViews()
         BalanceStack.reloadInputViews()
         
         recordTableView.reloadData()
@@ -234,7 +250,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: Testing button
     @IBAction func addPress(_ sender: Any) {
         Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
-        Record.addRecord(date: Date() as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 2)
+        Record.addRecord(date: Date() as NSDate, nature: "Expense", photo: nil, remark: "remark", type: "Pet", value: 2)
         render()
     }
     
@@ -247,7 +263,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func testPress(_ sender: Any) {
         print("Income: \(Record.getNatureSum(nature: Record.Nature.Income))")
-        print("Outcome: \(Record.getNatureSum(nature: Record.Nature.outcome))")
+        print("Expense: \(Record.getNatureSum(nature: Record.Nature.Expense))")
         render()
     }
     
