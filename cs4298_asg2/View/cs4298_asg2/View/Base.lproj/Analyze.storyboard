@@ -54,6 +54,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.90167487157534243" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="Percentage_Label" destination="wwG-iH-gAc" id="PO5-DJ-T97"/>
                                             <outlet property="percantage_bar" destination="KHc-eV-R6m" id="y62-ky-42Z"/>
@@ -183,7 +184,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YPV-sR-w7q"/>
                     </view>
                     <toolbarItems/>
@@ -247,7 +248,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.80238655821917804" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="Percentage_Label" destination="2ZC-k4-obz" id="AuY-T2-itP"/>
                                             <outlet property="percantage_bar" destination="OT3-Xg-Bw6" id="CK2-bW-AlP"/>
@@ -374,7 +377,7 @@
                                 <state key="normal" title="Button" image="Next_Button"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0fX-aa-naM"/>
                     </view>
                     <toolbarItems/>
@@ -456,6 +459,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="Percentage_Bar" destination="wL9-SL-CHq" id="exp-X3-CBi"/>
                                             <outlet property="Percentage_Label" destination="zDp-gj-NVe" id="YHe-09-ApO"/>
@@ -564,7 +568,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Hys-5Y-nf7"/>
                     </view>
                     <connections>
