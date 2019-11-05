@@ -13,7 +13,7 @@ import CoreData
 @objc(Record)
 public class Record: NSManagedObject {
     
-    enum nature: String {
+    enum Nature: String {
         case Income = "Income"
         case outcome = "Outcome"
     }
@@ -37,7 +37,7 @@ public class Record: NSManagedObject {
         case Pet = "Pet"
         case HealthCare = "Health Care"
         case Other = "Other"
-
+        
     }
     
     static func getCount() -> Int{
@@ -56,6 +56,7 @@ public class Record: NSManagedObject {
         record.remark = remark
         record.type = type
         record.value = value
+        
         
         DbService.saveContext()
         
@@ -86,6 +87,25 @@ public class Record: NSManagedObject {
         
         print("After delete: ", Record.getCount())
         print("=========================")
+    }
+    
+    static func getNatureSum(nature : Nature) -> Double{
+        var incomeSum: Double = 0;
+        var outcomeSum: Double = 0;
+        
+        let records = Record.fetchRecored();
+        
+        for record in records{
+            if (record.nature == "Income"){
+                incomeSum = incomeSum + record.value;
+            }else if(record.nature == "Outcome"){
+                outcomeSum = outcomeSum + record.value;
+            }else{
+                fatalError()
+            }
+        }
+        
+        return nature == Nature.Income ? incomeSum : outcomeSum
     }
     
     static func natureCount() -> AnyObject{
