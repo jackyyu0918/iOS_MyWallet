@@ -32,6 +32,10 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         render()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        render()
+    }
+    
     func render(){
         records = Record.fetchRecored()
         
