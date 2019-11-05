@@ -101,6 +101,7 @@ public class Record: NSManagedObject {
             }else if(record.nature == "Outcome"){
                 outcomeSum = outcomeSum + record.value;
             }else{
+                print(record.nature)
                 fatalError()
             }
         }
