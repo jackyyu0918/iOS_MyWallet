@@ -32,6 +32,8 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
         render()
         
+        print("View did load")
+        
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
@@ -48,19 +50,37 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         stackView.addGestureRecognizer(upSwipe)
         stackView.addGestureRecognizer(downSwipe)
     }
+    
     @IBOutlet weak var MonthLabel: UILabel!
 
+    var currentMonth: Int = Calendar.current.dateComponents([.month], from: Date()).month!
+    
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
             switch sender.direction {
             case .right:
-                print("helloRight")
+                if(currentMonth > 1){
+                    currentMonth = currentMonth - 1
+                    MonthLabel.text = String(currentMonth)
+                    render(months: [currentMonth])
+                }
+                
             case .left:
-                print("helloLeft")
+                if(currentMonth < 12){
+                    currentMonth = currentMonth + 1
+                    MonthLabel.text = String(currentMonth)
+                    render(months: [currentMonth])
+                }
+                
             case .up:
-                print("helloUp")
+                currentMonth = Calendar.current.dateComponents([.month], from: Date()).month!
+                MonthLabel.text = String(currentMonth)
+                render(months: [currentMonth])
+                
             case .down:
-                print("helloDown")
+                MonthLabel.text = String("All")
+                render(months: [1,2,3,4,5,6,7,8,9,10,11,12])
+                
             default:
                 break
             }
@@ -89,49 +109,31 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         recordTableView.reloadData()
     }
     
-//    func render(month: Int){
-//        records = Record.fetchRecored()
-//        let tempRecords = records
-//        for result in tempRecords {
-//            if result.date
-//        }
-//        
-//        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
-//        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
-//        let Balance: Double = Income - Outcome
-//        
-//        IncomeSum.text = String(Income)
-//        OutcomeSum.text = String(Outcome)
-//        BalanceSum.text = String(Balance)
-//        
-//        IncomeStack.reloadInputViews()
-//        OutcomeStack.reloadInputViews()
-//        BalanceStack.reloadInputViews()
-//        
-//        recordTableView.reloadData()
-//    }
-    
-//    func render(_ month: Int){
-//        records = Record.fetchRecored()
-//
-//        if {
-//           records.remove(at: )
-//        }
-//
-//        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
-//        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
-//        let Balance: Double = Income - Outcome
-//
-//        IncomeSum.text = String(Income)
-//        OutcomeSum.text = String(Outcome)
-//        BalanceSum.text = String(Balance)
-//
-//        IncomeStack.reloadInputViews()
-//        OutcomeStack.reloadInputViews()
-//        BalanceStack.reloadInputViews()
-//
-//        recordTableView.reloadData()
-//    }
+    func render(months: [Int]){
+        let tempRecords: [Record] = Record.fetchRecored()
+        records.removeAll()
+        
+        for record in tempRecords {
+            let recordMonth: Int = record.getMonth()
+            if(months.contains(recordMonth)){
+                records.append(record)
+            }
+        }
+        
+        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
+        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
+        let Balance: Double = Income - Outcome
+        
+        IncomeSum.text = String(Income)
+        OutcomeSum.text = String(Outcome)
+        BalanceSum.text = String(Balance)
+        
+        IncomeStack.reloadInputViews()
+        OutcomeStack.reloadInputViews()
+        BalanceStack.reloadInputViews()
+        
+        recordTableView.reloadData()
+    }
 
     // MARK:    RecodeTableView Realted
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -145,6 +145,13 @@ public class Record: NSManagedObject {
         return String(self.value)
     }
     
+    func getMonth() -> Int{
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.month], from: self.date! as Date)
+        let month = components.month!
+        return month
+    }
+    
     func getDateString() -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
