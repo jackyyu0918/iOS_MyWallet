@@ -22,6 +22,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var recordTableView: UITableView!
 
     var records: [Record] = []
+    @IBOutlet weak var stackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,40 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(showSetting), name: NSNotification.Name("ShowSetting"), object: nil)
         // Do any additional setup after loading the view.
         render()
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        leftSwipe.direction = .left
+        
+        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        upSwipe.direction = .up
+        
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        downSwipe.direction = .down
+        
+        stackView.addGestureRecognizer(rightSwipe)
+        stackView.addGestureRecognizer(leftSwipe)
+        stackView.addGestureRecognizer(upSwipe)
+        stackView.addGestureRecognizer(downSwipe)
+    }
+    @IBOutlet weak var MonthLabel: UILabel!
+
+    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            switch sender.direction {
+            case .right:
+                print("helloRight")
+            case .left:
+                print("helloLeft")
+            case .up:
+                print("helloUp")
+            case .down:
+                print("helloDown")
+            default:
+                break
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +88,28 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         recordTableView.reloadData()
     }
+    
+//    func render(_ month: Int){
+//        records = Record.fetchRecored()
+//
+//        if {
+//           records.remove(at: )
+//        }
+//
+//        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
+//        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
+//        let Balance: Double = Income - Outcome
+//
+//        IncomeSum.text = String(Income)
+//        OutcomeSum.text = String(Outcome)
+//        BalanceSum.text = String(Balance)
+//
+//        IncomeStack.reloadInputViews()
+//        OutcomeStack.reloadInputViews()
+//        BalanceStack.reloadInputViews()
+//
+//        recordTableView.reloadData()
+//    }
 
     // MARK:    RecodeTableView Realted
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -139,4 +196,6 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         print("Outcome: \(Record.getNatureSum(nature: Record.Nature.outcome))")
         render()
     }
+    
+    
 }
