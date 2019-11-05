@@ -45,6 +45,20 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
         downSwipe.direction = .down
         
+//        var dateComponents = DateComponents()
+//        
+//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
+//        dateComponents.month = 1
+//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 2)
+//        dateComponents.month = 2
+//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 3)
+//        dateComponents.month = 4
+//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 4)
+//        dateComponents.month = 1
+//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Pet", value: 5)
+//        dateComponents.month = 1
+//        Record.addRecord(date: Date(from: dateComponents) as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 5)
+
         stackView.addGestureRecognizer(rightSwipe)
         stackView.addGestureRecognizer(leftSwipe)
         stackView.addGestureRecognizer(upSwipe)
@@ -54,6 +68,8 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var MonthLabel: UILabel!
     
     var currentMonth: Int = Calendar.current.dateComponents([.month], from: Date()).month!
+    var engMonth = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
+
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
@@ -61,20 +77,20 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
             case .right:
                 if(currentMonth > 1){
                     currentMonth = currentMonth - 1
-                    MonthLabel.text = String(currentMonth)
+                    MonthLabel.text = String(engMonth[currentMonth - 1])
                     render(months: [currentMonth])
                 }
                 
             case .left:
                 if(currentMonth < 12){
                     currentMonth = currentMonth + 1
-                    MonthLabel.text = String(currentMonth)
+                    MonthLabel.text = String(engMonth[currentMonth - 1 ])
                     render(months: [currentMonth])
                 }
                 
             case .up:
                 currentMonth = Calendar.current.dateComponents([.month], from: Date()).month!
-                MonthLabel.text = String(currentMonth)
+                MonthLabel.text = String(engMonth[currentMonth - 1])
                 render(months: [currentMonth])
                 
             case .down:
@@ -86,6 +102,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         render()
