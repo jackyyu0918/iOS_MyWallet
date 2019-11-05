@@ -64,6 +64,19 @@ public class Record: NSManagedObject {
         print("=========================")
     }
     
+    
+    //  MARK: Modified
+    static func deleteRecord(record: Record){
+        print("-------------------------")
+        print("Before delete: ", Record.getCount())
+        
+        DbService.context.delete(record)
+        DbService.saveContext()
+        
+        print("After delete: ", Record.getCount())
+        print("=========================")
+    }
+    
     static func fetchRecored() -> [Record]{
         let request: NSFetchRequest<Record> = Record.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor.init(key: "date", ascending: false)]
@@ -76,17 +89,6 @@ public class Record: NSManagedObject {
         }
         
         return results
-    }
-    
-    static func deleteRecord(record: Record)
-    {
-        print("-------------------------")
-        print("Before delete: ", Record.getCount())
-        
-        DbService.context.delete(record)
-        
-        print("After delete: ", Record.getCount())
-        print("=========================")
     }
     
     static func getNatureSum(nature : Nature) -> Double{

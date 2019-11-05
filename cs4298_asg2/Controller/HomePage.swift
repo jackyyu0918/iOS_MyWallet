@@ -10,8 +10,17 @@ import UIKit
 import CoreData
 
 class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var recordTableView: UITableView!
     
+    @IBOutlet weak var IncomeStack: UIStackView!
+    @IBOutlet weak var OutcomeStack: UIStackView!
+    @IBOutlet weak var BalanceStack: UIStackView!
+    
+    @IBOutlet weak var IncomeSum: UILabel!
+    @IBOutlet weak var OutcomeSum: UILabel!
+    @IBOutlet weak var BalanceSum: UILabel!
+    
+    @IBOutlet weak var recordTableView: UITableView!
+
     var records: [Record] = []
     
     override func viewDidLoad() {
@@ -21,6 +30,24 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(showSetting), name: NSNotification.Name("ShowSetting"), object: nil)
         // Do any additional setup after loading the view.
         render()
+    }
+    
+    func render(){
+        records = Record.fetchRecored()
+        
+        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
+        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
+        let Balance: Double = Income - Outcome
+        
+        IncomeSum.text = String(Income)
+        OutcomeSum.text = String(Outcome)
+        BalanceSum.text = String(Balance)
+        
+        IncomeStack.reloadInputViews()
+        OutcomeStack.reloadInputViews()
+        BalanceStack.reloadInputViews()
+        
+        recordTableView.reloadData()
     }
 
     // MARK:    RecodeTableView Realted
@@ -67,33 +94,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         render()
     }
     
-    
-    @IBOutlet weak var IncomeStack: UIStackView!
-    @IBOutlet weak var OutcomeStack: UIStackView!
-    @IBOutlet weak var BalanceStack: UIStackView!
-    
-    @IBOutlet weak var IncomeSum: UILabel!
-    @IBOutlet weak var OutcomeSum: UILabel!
-    @IBOutlet weak var BalanceSum: UILabel!
-    
-    func render(){
-        records = Record.fetchRecored()
-        
-        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
-        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
-        let Balance: Double = Income - Outcome
-        
-        IncomeSum.text = String(Income)
-        OutcomeSum.text = String(Outcome)
-        BalanceSum.text = String(Balance)
-        
-        IncomeStack.reloadInputViews()
-        OutcomeStack.reloadInputViews()
-        BalanceStack.reloadInputViews()
-        
-        recordTableView.reloadData()
-    }
-    
+    //  MARK: Navigation Bar
     @objc func showAnalyze() {
         performSegue(withIdentifier: "ShowAnalyze", sender: nil)
     }
@@ -107,10 +108,11 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @IBAction func onMoreTapped(){
-        print("Toggle side menu")
+//        print("Toggle side menu")
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
     
+    // MARK: Testing button
     @IBAction func addPress(_ sender: Any) {
         Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
         Record.addRecord(date: Date() as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 2)
@@ -118,7 +120,6 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @IBAction func deletePress(_ sender: Any) {
-        let records = Record.fetchRecored()
         for record in records{
             Record.deleteRecord(record: record)
         }
