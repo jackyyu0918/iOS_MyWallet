@@ -92,8 +92,8 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let currentRow: Int = indexPath.row
-            tableView.deleteRows(at: [indexPath], with: .fade)
             Record.deleteRecord(record: records[currentRow])
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
         render()
     }
@@ -117,23 +117,23 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: Testing button
-    @IBAction func addPress(_ sender: Any) {
-        Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
-        Record.addRecord(date: Date() as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 2)
-        render()
-    }
-    
-    @IBAction func deletePress(_ sender: Any) {
-        for record in records{
-            Record.deleteRecord(record: record)
-        }
-        render()
-    }
-    
-    @IBAction func testPress(_ sender: Any) {
-        print("Income: \(Record.getNatureSum(nature: Record.Nature.Income))")
-        print("Outcome: \(Record.getNatureSum(nature: Record.Nature.outcome))")
-        render()
-    }
+//    @IBAction func addPress(_ sender: Any) {
+//        Record.addRecord(date: Date() as NSDate, nature: "Income", photo: nil, remark: "remark", type: "Food", value: 1)
+//        Record.addRecord(date: Date() as NSDate, nature: "Outcome", photo: nil, remark: "remark", type: "Pet", value: 2)
+//        render()
+//    }
+//
+//    @IBAction func deletePress(_ sender: Any) {
+//        for record in records{
+//            Record.deleteRecord(record: record)
+//        }
+//        render()
+//    }
+//
+//    @IBAction func testPress(_ sender: Any) {
+//        print("Income: \(Record.getNatureSum(nature: Record.Nature.Income))")
+//        print("Outcome: \(Record.getNatureSum(nature: Record.Nature.outcome))")
+//        render()
+//    }
 }
 
