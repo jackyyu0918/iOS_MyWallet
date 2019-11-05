@@ -118,11 +118,23 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if(months.contains(recordMonth)){
                 records.append(record)
             }
-            
         }
         
-        let Income: Double = Record.getNatureSum(nature: Record.Nature.Income)
-        let Outcome: Double = Record.getNatureSum(nature: Record.Nature.outcome)
+        // Count
+        
+        var Income: Double = 0;
+        var Outcome: Double = 0;
+        
+        for record in records{
+            if (record.nature == "Income"){
+                Income = Income + record.value;
+            }else if(record.nature == "Outcome"){
+                Outcome = Outcome + record.value;
+            }else{
+                print(record.nature)
+            }
+        }
+
         let Balance: Double = Income - Outcome
         
         IncomeSum.text = String(Income)
@@ -135,6 +147,7 @@ class HomePage: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         recordTableView.reloadData()
     }
+    
     
     //    func render(_ month: Int){
     //        records = Record.fetchRecored()
