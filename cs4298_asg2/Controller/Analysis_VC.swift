@@ -36,7 +36,7 @@ class Analysis_VC: UIViewController,UITableViewDataSource, UITableViewDelegate {
    
     
     let categories:[String] = ["Food","Shopping","Traffic","Bill","Entertainment","Pet","Health Care","Others"]
-    let CategoryPhoto = [ #imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "Shopping"),#imageLiteral(resourceName: "Traffic"),#imageLiteral(resourceName: "Bill"),#imageLiteral(resourceName: "Entertainment"),#imageLiteral(resourceName: "Pet"),#imageLiteral(resourceName: "HealthCare"),#imageLiteral(resourceName: "Others")]
+    let CategoryPhoto = [ #imageLiteral(resourceName: "Food2-1"),#imageLiteral(resourceName: "Shopping2"),#imageLiteral(resourceName: "Traffic"),#imageLiteral(resourceName: "Bill"),#imageLiteral(resourceName: "Entertainment"),#imageLiteral(resourceName: "Pet2"),#imageLiteral(resourceName: "Healthcare-1"),#imageLiteral(resourceName: "Others")]
     
     var proportion : Array<Float> = Array(repeating: 0, count: 8)
     var uiColorArray = [UIColor]()
