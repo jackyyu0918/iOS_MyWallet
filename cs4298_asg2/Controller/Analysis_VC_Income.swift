@@ -34,7 +34,7 @@ class Analysis_VC_Income: UIViewController,UITableViewDelegate,UITableViewDataSo
     var results =  Record.fetchRecored()
     
     let categories:[String] = ["Salary","Investment","Rent","Prize","Coupon","Lottery","Refund","Others"]
-    let CategoryPhoto = [ #imageLiteral(resourceName: "Salary"),#imageLiteral(resourceName: "Investment"),#imageLiteral(resourceName: "Rent"),#imageLiteral(resourceName: "Prize"),#imageLiteral(resourceName: "Coupon"),#imageLiteral(resourceName: "Lottery"),#imageLiteral(resourceName: "Refund"),#imageLiteral(resourceName: "Others")]
+    let CategoryPhoto = [ #imageLiteral(resourceName: "Salary"),#imageLiteral(resourceName: "Investment"),#imageLiteral(resourceName: "Rent"),#imageLiteral(resourceName: "Prize"),#imageLiteral(resourceName: "Coupon"),#imageLiteral(resourceName: "Lottery"),#imageLiteral(resourceName: "Refund"),#imageLiteral(resourceName: "Other2")]
     
     var proportion : Array<Float> = Array(repeating: 0, count: 8)
     var uiColorArray = [UIColor]()
